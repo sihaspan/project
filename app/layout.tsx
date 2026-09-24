@@ -10,7 +10,7 @@ const serif = Instrument_Serif({
 const sans = Manrope({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "Siha Span Advisory",
+  title: "Siha Span",
   description: "Website under development.",
 };
 

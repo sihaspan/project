@@ -1,4 +1,4 @@
-# Siha Span Advisory – Under development page
+# Siha Span – Under development page
 
     npm install
     npm run dev      # http://localhost:3000
