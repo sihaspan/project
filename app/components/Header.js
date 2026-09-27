@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Logo from "./Logo";
+import ThemeToggle from "./ThemeToggle";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -39,6 +40,7 @@ export default function Header() {
         </nav>
 
         <div className="nav-right">
+          <ThemeToggle />
           <Link href="/contact" className="nav-cta" onClick={() => setOpen(false)}>
             Talk to us
           </Link>
