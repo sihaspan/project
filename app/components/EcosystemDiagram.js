@@ -30,24 +30,30 @@ export default function EcosystemDiagram() {
               x2={p.x}
               y2={p.y}
               className="link-line diagram-line"
-              style={{ animationDelay: `${i * 70}ms` }}
+              style={{ animationDelay: `${i * 70}ms, ${900 + i * 70}ms` }}
             />
           ))}
         </g>
 
         <g className="diagram-center">
+          <circle cx={cx} cy={cy} r={64} fill="none" stroke="var(--gold)" strokeWidth="1.2" className="diagram-pulse" />
           <circle cx={cx} cy={cy} r={58} fill="var(--ink)" />
-          <text
-            x={cx}
-            y={cy - 5}
-            textAnchor="middle"
-            fill="var(--paper)"
-            fontFamily="Fraunces, serif"
-            fontSize="15"
-            fontWeight="500"
-          >
-            Siha Span
-          </text>
+          <image
+            href="/logo-mark-cream.png"
+            x={cx - 40}
+            y={cy - 40}
+            width={80}
+            height={80}
+            className="diagram-logo diagram-logo--cream"
+          />
+          <image
+            href="/logo-mark-maroon.png"
+            x={cx - 40}
+            y={cy - 40}
+            width={80}
+            height={80}
+            className="diagram-logo diagram-logo--maroon"
+          />
         </g>
 
         <g>

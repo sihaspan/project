@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <>
       <section className="hero">
-        <div className="wrap" style={{ display: "contents" }}>
+        <div className="wrap hero-grid">
           <Reveal>
             <div className="eyebrow-plain">Health systems advisory</div>
             <h1>Stronger health systems for better care.</h1>

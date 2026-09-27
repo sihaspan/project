@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "./Logo";
 
 const CLIENT_PHONE_DISPLAY = "0721 917 972";
 const CLIENT_PHONE_TEL = "+254721917972";
@@ -10,7 +11,7 @@ export default function Footer() {
       <div className="wrap footer-grid">
         <div className="footer-brand">
           <div className="brand">
-            <span className="brand-mark">S</span>
+            <Logo size={36} />
             Siha Span
           </div>
           <p>

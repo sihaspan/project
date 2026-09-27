@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import Logo from "./Logo";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -20,7 +21,7 @@ export default function Header() {
     <header>
       <div className="nav">
         <Link href="/" className="brand" onClick={() => setOpen(false)}>
-          <span className="brand-mark">S</span>
+          <Logo size={36} />
           Siha Span
         </Link>
 
