@@ -1,6 +1,12 @@
 import ContactForm from "../components/ContactForm";
 import Reveal from "../components/Reveal";
 
+export const metadata = {
+  title: "Contact — Siha Span Advisory",
+  description:
+    "Tell Siha Span Advisory about your healthcare project — facility planning, governance frameworks or strategy — and we'll help you scope the right engagement.",
+};
+
 const CLIENT_PHONE_DISPLAY = "0721 917 972";
 const CLIENT_PHONE_TEL = "+254721917972";
 const CLIENT_PHONE_WHATSAPP = "254721917972";

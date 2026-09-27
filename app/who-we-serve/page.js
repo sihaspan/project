@@ -1,5 +1,11 @@
 import Reveal from "../components/Reveal";
 
+export const metadata = {
+  title: "Who We Serve — Siha Span Advisory",
+  description:
+    "Healthcare providers, insurers, government agencies, NGOs, foundations and health-technology companies — advisory sized to every mandate across the health ecosystem.",
+};
+
 const SERVED = [
   {
     title: "Healthcare providers",

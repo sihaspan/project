@@ -2,6 +2,12 @@ import Link from "next/link";
 import EcosystemDiagram from "./components/EcosystemDiagram";
 import Reveal from "./components/Reveal";
 
+export const metadata = {
+  title: "Siha Span Advisory — Stronger Health Systems for Better Care",
+  description:
+    "Siha Span Advisory helps healthcare providers, insurers, government agencies, NGOs, foundations and health-technology companies design and deliver services that hold up under real-world pressure.",
+};
+
 const HIGHLIGHTS = [
   {
     title: "Practical, not theoretical",
@@ -18,10 +24,10 @@ const HIGHLIGHTS = [
 ];
 
 const SERVICE_PREVIEW = [
-  { mark: "S", title: "Strategy & Growth" },
-  { mark: "F", title: "Health Facility Development" },
-  { mark: "C", title: "Clinical Governance & Quality" },
-  { mark: "A", title: "Specialised Assignments" },
+  { mark: "S", title: "Strategy & Growth", tag: "Financial Management · Investment Planning · Strategic Planning" },
+  { mark: "F", title: "Health Facility Development", tag: "Pre-Feasibility · Feasibility · Service Design · Digital Health" },
+  { mark: "C", title: "Clinical Governance & Quality", tag: "Quality · Systems · Performance · Leadership" },
+  { mark: "A", title: "Specialised Assignments", tag: "Due Diligence · Technical Review · Project Validation" },
 ];
 
 export default function Home() {
@@ -110,6 +116,7 @@ export default function Home() {
               <Reveal key={s.title} delay={i * 80} as="div" className="preview-card">
                 <div className="service-mark">{s.mark}</div>
                 <h3>{s.title}</h3>
+                <p className="preview-tag">{s.tag}</p>
               </Reveal>
             ))}
           </div>
@@ -124,10 +131,10 @@ export default function Home() {
       <section className="cta-band">
         <div className="wrap">
           <Reveal as="div" className="cta-inner">
-            <h2>Have a project in mind?</h2>
+            <h2>Have a healthcare challenge that needs a systems-level solution?</h2>
             <p>Tell us what you're trying to solve and we'll tell you how we can help.</p>
             <Link href="/contact" className="btn-primary">
-              Talk to us
+              Let&rsquo;s Talk
             </Link>
           </Reveal>
         </div>

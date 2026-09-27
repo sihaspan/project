@@ -3,10 +3,44 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import PageFade from "./components/PageFade";
 
+const SITE_URL = "https://sihaspan.com"; // TODO: replace with the live production domain
+
 export const metadata = {
-  title: "Siha Span — Stronger Health Systems for Better Care",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Siha Span Advisory — Stronger Health Systems for Better Care",
+    template: "%s",
+  },
   description:
-    "Siha Span is a health systems advisory helping providers, insurers, government agencies, NGOs, foundations and health-technology companies design and deliver services that hold up under real-world pressure.",
+    "Siha Span Advisory is a health systems advisory helping providers, insurers, government agencies, NGOs, foundations and health-technology companies design and deliver services that hold up under real-world pressure.",
+  openGraph: {
+    title: "Siha Span Advisory — Stronger Health Systems for Better Care",
+    description:
+      "Specialised advisory services and sector expertise across the healthcare ecosystem — strategy & growth, facility development, clinical governance and quality, and specialised assignments.",
+    url: SITE_URL,
+    siteName: "Siha Span Advisory",
+    images: ["/logo-full-maroon.png"],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Siha Span Advisory — Stronger Health Systems for Better Care",
+    description: "Health systems advisory for providers, insurers, government, NGOs, foundations and health-tech.",
+  },
+};
+
+const ORG_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Siha Span Advisory",
+  alternateName: "Siha Span",
+  description:
+    "Specialised advisory services and sector expertise across the healthcare ecosystem, including healthcare providers and hospital systems, insurers and health financing institutions, government agencies and parastatals, non-governmental and development organizations, foundations, and health technology companies.",
+  slogan: "Stronger Health Systems for Better Care",
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo-mark-maroon.png`,
+  areaServed: "Global",
 };
 
 export default function RootLayout({ children }) {
@@ -22,6 +56,11 @@ export default function RootLayout({ children }) {
         <link
           href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Public+Sans:wght@400;500;600;700&display=swap"
           rel="stylesheet"
+        />
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_JSON_LD) }}
         />
       </head>
       <body>

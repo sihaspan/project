@@ -1,5 +1,11 @@
 import Reveal from "../components/Reveal";
 
+export const metadata = {
+  title: "About — Siha Span Advisory",
+  description:
+    "Siha Span Advisory works across the healthcare ecosystem, bringing strategic, operational and clinical governance expertise to organisations that carry real responsibility for people's health.",
+};
+
 const APPROACH = [
   {
     phase: "Scope",
