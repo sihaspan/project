@@ -205,7 +205,7 @@ nav.links a.active::after{width:100%;}
 
 .diagram-frame{position:relative;}
 .diagram-frame svg{width:100%; height:auto; overflow:visible;}
-.node-label{font-family:"Public Sans",sans-serif; font-size:12.5px; fill:var(--slate);}
+.node-label{font-family:"Public Sans",sans-serif; font-size:11px; font-weight:600; fill:var(--slate);}
 .node-dot{fill:var(--paper); stroke:var(--gold); stroke-width:1.4; transition:stroke .2s ease;}
 .diagram-node:hover .node-dot{stroke-width:2.2;}
 .link-line{stroke:var(--line); stroke-width:1.4;}

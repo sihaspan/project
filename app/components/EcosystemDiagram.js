@@ -59,7 +59,7 @@ export default function EcosystemDiagram() {
         <g>
           {positions.map((p, i) => (
             <g key={p.label} className="diagram-node" style={{ animationDelay: `${300 + i * 90}ms` }}>
-              <circle cx={p.x} cy={p.y} r={30} className="node-dot" />
+              <circle cx={p.x} cy={p.y} r={50} className="node-dot" />
               <text x={p.x} y={p.y + 4} textAnchor="middle" className="node-label">
                 {p.label}
               </text>
