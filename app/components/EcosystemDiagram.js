@@ -22,34 +22,37 @@ export default function EcosystemDiagram() {
         aria-label="Diagram showing Siha Span at the centre of the healthcare ecosystem, connected to providers, insurers, government, NGOs, foundations and health-tech companies"
       >
         <g>
-          {positions.map((p) => (
+          {positions.map((p, i) => (
             <line
               key={`line-${p.label}`}
               x1={cx}
               y1={cy}
               x2={p.x}
               y2={p.y}
-              className="link-line"
+              className="link-line diagram-line"
+              style={{ animationDelay: `${i * 70}ms` }}
             />
           ))}
         </g>
 
-        <circle cx={cx} cy={cy} r={58} fill="var(--ink)" />
-        <text
-          x={cx}
-          y={cy - 5}
-          textAnchor="middle"
-          fill="var(--paper)"
-          fontFamily="Fraunces, serif"
-          fontSize="15"
-          fontWeight="500"
-        >
-          Siha Span
-        </text>
+        <g className="diagram-center">
+          <circle cx={cx} cy={cy} r={58} fill="var(--ink)" />
+          <text
+            x={cx}
+            y={cy - 5}
+            textAnchor="middle"
+            fill="var(--paper)"
+            fontFamily="Fraunces, serif"
+            fontSize="15"
+            fontWeight="500"
+          >
+            Siha Span
+          </text>
+        </g>
 
         <g>
-          {positions.map((p) => (
-            <g key={p.label}>
+          {positions.map((p, i) => (
+            <g key={p.label} className="diagram-node" style={{ animationDelay: `${300 + i * 90}ms` }}>
               <circle cx={p.x} cy={p.y} r={30} className="node-dot" />
               <text x={p.x} y={p.y + 4} textAnchor="middle" className="node-label">
                 {p.label}
