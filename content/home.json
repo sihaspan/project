@@ -1,0 +1,69 @@
+{
+  "seo": {
+    "title": "Siha Span Advisory — Stronger Health Systems for Better Care",
+    "description": "Siha Span Advisory helps healthcare providers, insurers, government agencies, NGOs, foundations and health-technology companies design and deliver services that hold up under real-world pressure."
+  },
+  "hero": {
+    "eyebrow": "Health systems advisory",
+    "heading": "Stronger health systems for better care.",
+    "lede": "Siha Span helps providers, insurers, government agencies, NGOs, foundations and health-technology companies design and deliver services that hold up under real-world pressure.",
+    "primaryButton": "Start a conversation",
+    "secondaryButton": "See how we work"
+  },
+  "strip": [
+    {
+      "name": "Providers",
+      "detail": "hospitals & clinics"
+    },
+    {
+      "name": "Insurers",
+      "detail": "health financing"
+    },
+    {
+      "name": "Government",
+      "detail": "policy & regulation"
+    },
+    {
+      "name": "NGOs & foundations",
+      "detail": "programme delivery"
+    },
+    {
+      "name": "Health-tech",
+      "detail": "digital health"
+    }
+  ],
+  "why": {
+    "head": {
+      "kicker": "Why Siha Span",
+      "heading": "Advisory that gets implemented.",
+      "description": "We've seen too many good strategies stall at handover. Our approach is designed to survive contact with the day-to-day."
+    },
+    "items": [
+      {
+        "title": "Practical, not theoretical",
+        "body": "Every recommendation is sized to what your team can actually implement, with your budget and timeline."
+      },
+      {
+        "title": "Embedded delivery",
+        "body": "We work alongside your staff rather than handing over a report and moving on to the next client."
+      },
+      {
+        "title": "Built to last",
+        "body": "Documentation, training and systems your team can run independently once the engagement ends."
+      }
+    ]
+  },
+  "whatWeDo": {
+    "head": {
+      "kicker": "What we do",
+      "heading": "Four areas of practice.",
+      "description": "From strategy through to specialised assignments — explore the full detail on our services page."
+    },
+    "buttonText": "View all services"
+  },
+  "cta": {
+    "heading": "Have a healthcare challenge that needs a systems-level solution?",
+    "text": "Tell us what you're trying to solve and we'll tell you how we can help.",
+    "button": "Let’s Talk"
+  }
+}

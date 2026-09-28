@@ -5,6 +5,7 @@ export default function robots() {
     rules: {
       userAgent: "*",
       allow: "/",
+      disallow: ["/admin", "/keystatic", "/api/"],
     },
     sitemap: `${SITE_URL}/sitemap.xml`,
   };

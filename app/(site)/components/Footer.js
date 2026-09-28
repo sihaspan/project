@@ -1,11 +1,13 @@
 import Link from "next/link";
 import Logo from "./Logo";
 
-const CLIENT_PHONE_DISPLAY = "0721 917 972";
-const CLIENT_PHONE_TEL = "+254721917972";
-const CLIENT_PHONE_WHATSAPP = "254721917972";
+import { getSettings, getSocialLinks } from "@/lib/content";
 
-export default function Footer() {
+export default async function Footer() {
+  const settings = await getSettings();
+  const { phoneDisplay, phoneTel, whatsapp } = settings.contact;
+  const socials = getSocialLinks(settings);
+
   return (
     <footer>
       <div className="wrap footer-grid">
@@ -14,10 +16,7 @@ export default function Footer() {
             <Logo size={36} />
             Siha Span
           </div>
-          <p>
-            Stronger health systems for better care — advisory for providers, insurers,
-            government agencies, NGOs, foundations and health-technology companies.
-          </p>
+          <p>{settings.footer.blurb}</p>
         </div>
 
         <div className="footer-col">
@@ -30,23 +29,16 @@ export default function Footer() {
 
         <div className="footer-col">
           <div className="footer-heading">Get in touch</div>
-          <a href={`tel:${CLIENT_PHONE_TEL}`}>{CLIENT_PHONE_DISPLAY}</a>
-          <a href={`https://wa.me/${CLIENT_PHONE_WHATSAPP}`} target="_blank" rel="noopener">
+          <a href={`tel:${phoneTel}`}>{phoneDisplay}</a>
+          <a href={`https://wa.me/${whatsapp}`} target="_blank" rel="noopener">
             WhatsApp
           </a>
           <div className="social-row">
-            <a className="social-chip" href="#" target="_blank" rel="noopener">
-              LinkedIn
-            </a>
-            <a className="social-chip" href="#" target="_blank" rel="noopener">
-              Facebook
-            </a>
-            <a className="social-chip" href="#" target="_blank" rel="noopener">
-              Instagram
-            </a>
-            <a className="social-chip" href="#" target="_blank" rel="noopener">
-              TikTok
-            </a>
+            {socials.map((s) => (
+              <a key={s.label} className="social-chip" href={s.href} target="_blank" rel="noopener">
+                {s.label}
+              </a>
+            ))}
           </div>
         </div>
       </div>

@@ -1,0 +1,37 @@
+{
+  "seo": {
+    "title": "Who We Serve — Siha Span Advisory",
+    "description": "Healthcare providers, insurers, government agencies, NGOs, foundations and health-technology companies — advisory sized to every mandate across the health ecosystem."
+  },
+  "head": {
+    "kicker": "Who we serve",
+    "heading": "Every part of the health ecosystem.",
+    "lede": "Different mandates, one shared need: services that actually work for the people who depend on them."
+  },
+  "items": [
+    {
+      "title": "Healthcare providers",
+      "body": "Hospitals, clinics and networks planning growth or resolving operational strain."
+    },
+    {
+      "title": "Insurers",
+      "body": "Health financing organisations shaping products, claims and provider networks."
+    },
+    {
+      "title": "Government agencies",
+      "body": "Ministries and regulators developing policy, standards and oversight capacity."
+    },
+    {
+      "title": "NGOs",
+      "body": "Implementing partners delivering programmes on the ground."
+    },
+    {
+      "title": "Foundations",
+      "body": "Funders looking for rigorous evaluation and evidence of impact."
+    },
+    {
+      "title": "Health-tech companies",
+      "body": "Digital health innovators navigating clinical and regulatory realities."
+    }
+  ]
+}
