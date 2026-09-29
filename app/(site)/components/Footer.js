@@ -44,7 +44,7 @@ export default async function Footer() {
       </div>
 
       <div className="wrap footer-bottom">
-        <div>© {new Date().getFullYear()} Siha Span Advisory. All rights reserved.</div>
+        <div>© {new Date().getFullYear()} Siha Span. All rights reserved.</div>
         <div>Site by Gilvon Software Solutions</div>
       </div>
     </footer>

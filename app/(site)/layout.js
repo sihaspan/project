@@ -8,24 +8,24 @@ const SITE_URL = "https://sihaspan.com"; // TODO: replace with the live producti
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Siha Span Advisory — Stronger Health Systems for Better Care",
+    default: "Siha Span — Stronger Health Systems for Better Care",
     template: "%s",
   },
   description:
-    "Siha Span Advisory is a health systems advisory helping providers, insurers, government agencies, NGOs, foundations and health-technology companies design and deliver services that hold up under real-world pressure.",
+    "Siha Span is a health systems advisory helping providers, insurers, government agencies, NGOs, foundations and health-technology companies design and deliver services that hold up under real-world pressure.",
   openGraph: {
-    title: "Siha Span Advisory — Stronger Health Systems for Better Care",
+    title: "Siha Span — Stronger Health Systems for Better Care",
     description:
       "Specialised advisory services and sector expertise across the healthcare ecosystem — strategy & growth, facility development, clinical governance and quality, and specialised assignments.",
     url: SITE_URL,
-    siteName: "Siha Span Advisory",
+    siteName: "Siha Span",
     images: ["/logo-full-maroon.png"],
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "Siha Span Advisory — Stronger Health Systems for Better Care",
+    title: "Siha Span — Stronger Health Systems for Better Care",
     description: "Health systems advisory for providers, insurers, government, NGOs, foundations and health-tech.",
   },
 };
@@ -33,7 +33,7 @@ export const metadata = {
 const ORG_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  name: "Siha Span Advisory",
+  name: "Siha Span",
   alternateName: "Siha Span",
   description:
     "Specialised advisory services and sector expertise across the healthcare ecosystem, including healthcare providers and hospital systems, insurers and health financing institutions, government agencies and parastatals, non-governmental and development organizations, foundations, and health technology companies.",

@@ -146,9 +146,15 @@ nav.links a.active::after{width:100%;}
   background:var(--card); align-items:center; justify-content:center; position:relative; cursor:pointer;
   flex:none;
 }
+.burger{
+  position:absolute; top:50%; left:50%; margin:-1px 0 0 -8px;
+}
 .burger, .burger::before, .burger::after{
-  content:""; position:absolute; width:16px; height:2px; background:var(--ink);
+  content:""; display:block; width:16px; height:2px; background:var(--ink);
   transition:transform .25s ease, opacity .2s ease;
+}
+.burger::before, .burger::after{
+  position:absolute; left:0; top:0;
 }
 .burger::before{transform:translateY(-6px);}
 .burger::after{transform:translateY(6px);}
