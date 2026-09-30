@@ -327,6 +327,7 @@ section{padding:96px 0;}
   box-shadow:var(--shadow-sm); transition:box-shadow .2s ease, transform .15s ease;
 }
 .send-btn:hover{box-shadow:var(--shadow-md); transform:translateY(-1px);}
+.send-btn:disabled{opacity:.7; cursor:not-allowed; transform:none;}
 .send-note{font-size:0.82rem; color:var(--slate); margin-top:12px;}
 
 .contact-info h3{font-size:1.6rem; margin-bottom:18px;}

@@ -3,13 +3,38 @@
 import { useState } from "react";
 
 export default function ContactForm() {
-  const [showToast, setShowToast] = useState(false);
+  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+  const [errorMsg, setErrorMsg] = useState("");
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    setShowToast(true);
-    e.target.reset();
-    setTimeout(() => setShowToast(false), 3200);
+    if (status === "sending") return;
+
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form));
+
+    setStatus("sending");
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        throw new Error(json.error || "Something went wrong. Please try again.");
+      }
+
+      form.reset();
+      setStatus("success");
+      setTimeout(() => setStatus("idle"), 4500);
+    } catch (err) {
+      setErrorMsg(err.message || "Something went wrong. Please try again.");
+      setStatus("error");
+    }
   }
 
   return (
@@ -37,16 +62,26 @@ export default function ContactForm() {
               placeholder="A short note on your project or challenge"
             />
           </div>
-          <button type="submit" className="send-btn">
-            Send message
-          </button>
-          <div className="send-note">
-            This form is a placeholder for the MVP — connect it to email or the CMS backend at launch.
+
+          {/* Honeypot field: hidden from people, bots tend to fill it in */}
+          <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", height: 0, overflow: "hidden" }}>
+            <label htmlFor="website">Leave this field empty</label>
+            <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
           </div>
+
+          <button type="submit" className="send-btn" disabled={status === "sending"}>
+            {status === "sending" ? "Sending…" : "Send message"}
+          </button>
+
+          {status === "error" && (
+            <div className="send-note" role="alert" style={{ color: "#b3261e" }}>
+              {errorMsg}
+            </div>
+          )}
         </form>
       </div>
 
-      <div id="toast" className={showToast ? "show" : ""}>
+      <div id="toast" className={status === "success" ? "show" : ""} role="status" aria-live="polite">
         Message sent — we&rsquo;ll be in touch shortly.
       </div>
     </>
