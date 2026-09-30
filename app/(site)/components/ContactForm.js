@@ -2,39 +2,32 @@
 
 import { useState } from "react";
 
+const TO_EMAIL = "info@sihaspan.com";
+
 export default function ContactForm() {
-  const [status, setStatus] = useState("idle"); // idle | sending | success | error
-  const [errorMsg, setErrorMsg] = useState("");
+  const [showToast, setShowToast] = useState(false);
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
-    if (status === "sending") return;
-
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form));
 
-    setStatus("sending");
-    setErrorMsg("");
+    const subject = `Website enquiry from ${data.name}${data.org ? ` (${data.org})` : ""}`;
+    const body = [
+      `Name: ${data.name}`,
+      `Organisation: ${data.org || "-"}`,
+      `Email: ${data.email}`,
+      "",
+      "Message:",
+      data.message,
+    ].join("\r\n");
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      const json = await res.json().catch(() => ({}));
+    // Opens the visitor's default email app with everything filled in.
+    window.location.href = `mailto:${TO_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-      if (!res.ok) {
-        throw new Error(json.error || "Something went wrong. Please try again.");
-      }
-
-      form.reset();
-      setStatus("success");
-      setTimeout(() => setStatus("idle"), 4500);
-    } catch (err) {
-      setErrorMsg(err.message || "Something went wrong. Please try again.");
-      setStatus("error");
-    }
+    form.reset();
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 4500);
   }
 
   return (
@@ -62,27 +55,18 @@ export default function ContactForm() {
               placeholder="A short note on your project or challenge"
             />
           </div>
-
-          {/* Honeypot field: hidden from people, bots tend to fill it in */}
-          <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", height: 0, overflow: "hidden" }}>
-            <label htmlFor="website">Leave this field empty</label>
-            <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
-          </div>
-
-          <button type="submit" className="send-btn" disabled={status === "sending"}>
-            {status === "sending" ? "Sending…" : "Send message"}
+          <button type="submit" className="send-btn">
+            Send message
           </button>
-
-          {status === "error" && (
-            <div className="send-note" role="alert" style={{ color: "#b3261e" }}>
-              {errorMsg}
-            </div>
-          )}
+          <div className="send-note">
+            This opens your email app with your message ready to send. If nothing opens, email us
+            directly at <a href={`mailto:${TO_EMAIL}`}>{TO_EMAIL}</a>.
+          </div>
         </form>
       </div>
 
-      <div id="toast" className={status === "success" ? "show" : ""} role="status" aria-live="polite">
-        Message sent — we&rsquo;ll be in touch shortly.
+      <div id="toast" className={showToast ? "show" : ""} role="status" aria-live="polite">
+        Opening your email app — press Send there to finish.
       </div>
     </>
   );
