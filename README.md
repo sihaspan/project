@@ -1,6 +1,6 @@
-# Siha Span — Website MVP (Next.js)
+# SihaSpan — Website MVP (Next.js)
 
-A single-page marketing site for Siha Span, built with Next.js (App Router).
+A single-page marketing site for SihaSpan, built with Next.js (App Router).
 
 ## Getting started
 

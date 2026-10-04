@@ -19,7 +19,7 @@ export default function EcosystemDiagram() {
       <svg
         viewBox="0 0 420 420"
         role="img"
-        aria-label="Diagram showing Siha Span at the centre of the healthcare ecosystem, connected to providers, insurers, government, NGOs, foundations and health-tech companies"
+        aria-label="Diagram showing SihaSpan at the centre of the healthcare ecosystem, connected to providers, insurers, government, NGOs, foundations and health-tech companies"
       >
         <g>
           {positions.map((p, i) => (

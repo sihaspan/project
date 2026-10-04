@@ -65,7 +65,7 @@ Invite the client's GitHub account as a collaborator on the repo with **Write** 
 
 | CMS section | Controls |
 |---|---|
-| Home page | Hero, sector strip, "Why Siha Span", section headings, call-to-action |
+| Home page | Hero, sector strip, "Why SihaSpan", section headings, call-to-action |
 | About page | Intro, body paragraphs, stats, "How we work" steps |
 | Services page | Each service (name, letter icon, tag, description, capabilities) — also feeds the Home page service cards |
 | Who we serve page | Sector cards |

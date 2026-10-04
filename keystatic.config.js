@@ -82,7 +82,7 @@ export default config({
     : { kind: "github", repo: GITHUB_REPO },
 
   ui: {
-    brand: { name: "Siha Span — Content" },
+    brand: { name: "SihaSpan — Content" },
     navigation: {
       Pages: ["home", "about", "services", "whoWeServe", "contact"],
       Site: ["settings"],
@@ -167,7 +167,7 @@ export default config({
             head: sectionHead(),
             items: titleBodyList("Highlights", "Highlight"),
           },
-          { label: "“Why Siha Span” section" }
+          { label: "“Why SihaSpan” section" }
         ),
         whatWeDo: fields.object(
           {

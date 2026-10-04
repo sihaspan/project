@@ -3,7 +3,7 @@ export default function Logo({ size = 34 }) {
     <span className="brand-mark" style={{ width: size, height: size }}>
       <img
         src="/logo-mark-maroon.png"
-        alt="Siha Span"
+        alt="SihaSpan"
         className="brand-mark-img brand-mark-img--light"
         width={size}
         height={size}

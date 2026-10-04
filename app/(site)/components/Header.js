@@ -23,7 +23,7 @@ export default function Header() {
       <div className="nav">
         <Link href="/" className="brand" onClick={() => setOpen(false)}>
           <Logo size={36} />
-          Siha Span
+          SihaSpan
         </Link>
 
         <nav className={`links${open ? " open" : ""}`}>

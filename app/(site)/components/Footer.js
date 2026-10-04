@@ -14,7 +14,7 @@ export default async function Footer() {
         <div className="footer-brand">
           <div className="brand">
             <Logo size={36} />
-            Siha Span
+            SihaSpan
           </div>
           <p>{settings.footer.blurb}</p>
         </div>
@@ -44,7 +44,7 @@ export default async function Footer() {
       </div>
 
       <div className="wrap footer-bottom">
-        <div>© {new Date().getFullYear()} Siha Span. All rights reserved.</div>
+        <div>© {new Date().getFullYear()} SihaSpan. All rights reserved.</div>
         <div>Site by Gilvon Software Solutions</div>
       </div>
     </footer>
