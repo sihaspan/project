@@ -10,7 +10,17 @@
     "primaryButton": "Start a conversation",
     "secondaryButton": "See how we work"
   },
-  "strip": [],
+  "strip": [
+    {
+      "name": "Healthcare organizations"
+    },
+    {
+      "name": "Public Institutions"
+    },
+    {
+      "name": "Development partners"
+    }
+  ],
   "why": {
     "head": {
       "kicker": "Why SihaSpan",
