@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "Services — SihaSpan",
-    "description": "Five areas of practice: Strategy & Growth, Health Facility Development, Clinical Governance & Quality, Digital Health and Specialized Assignments for the healthcare ecosystem."
+    "description": "Five areas of practice: Strategy & Growth, Health Facility Development, Clinical Governance & Quality, Health Technology and Specialized Assignments for the healthcare ecosystem."
   },
   "head": {
     "kicker": "What we do",
@@ -21,14 +21,14 @@
       ]
     },
     {
-      "mark": "F",
-      "title": "Health Facility Development",
-      "tag": "Infrastructure",
-      "body": "Needs Assessment, Workflow design and project oversight for new and expanding health facilities, from concept through to commissioning.",
+      "mark": "HT",
+      "title": "Health Technology",
+      "tag": "Health-Tech",
+      "body": "Compliance, Clinical validation, Ethical governance, Implementation, Workforce training and Investment frameworks",
       "capabilities": [
-        "Pre-Feasibility",
-        "Feasibility",
-        "Service Design"
+        "Knowledge Management",
+        "Implementation",
+        "Ecosystem Scaling"
       ]
     },
     {
@@ -43,6 +43,17 @@
       ]
     },
     {
+      "mark": "F",
+      "title": "Health Facility Development",
+      "tag": "Infrastructure",
+      "body": "Needs Assessment, Workflow design and project oversight for new and expanding health facilities, from concept through to commissioning.",
+      "capabilities": [
+        "Pre-Feasibility",
+        "Feasibility",
+        "Service Design"
+      ]
+    },
+    {
       "mark": "A",
       "title": "Specialised Assignments",
       "tag": "Bespoke",
@@ -51,17 +62,6 @@
         "Technical Review",
         "Project Validation",
         "Change Management"
-      ]
-    },
-    {
-      "mark": "HT",
-      "title": "Health Technology",
-      "tag": "Health-Tech",
-      "body": "Compliance, Clinical validation, Ethical governance, Implementation, Workforce training and Investment frameworks",
-      "capabilities": [
-        "Knowledge Management",
-        "Implementation",
-        "Ecosystem Scaling"
       ]
     }
   ],
