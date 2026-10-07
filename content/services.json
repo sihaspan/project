@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "Services — SihaSpan",
-    "description": "Five areas of practice: Strategy & Growth, Health Facility Development, Clinical Governance & Quality, Health Technology and Specialized Assignments for the healthcare ecosystem."
+    "description": "Five areas of practice: Strategy & Growth, Health Facility Development, Clinical Governance & Quality, Health Technology and Specialized Advisory."
   },
   "head": {
     "kicker": "What we do",
@@ -13,7 +13,7 @@
       "mark": "S",
       "title": "Strategy & Growth",
       "tag": "Direction",
-      "body": "Market entry, service-line strategy, scenario planning, competitive positioning, and opportunity assessment.",
+      "body": "Market entry, service-line strategy, scenario planning, competitive positioning, opportunity assessment and investment decisions.",
       "capabilities": [
         "Scenario Planning",
         "Investment Planning",
@@ -24,7 +24,7 @@
       "mark": "HT",
       "title": "Health Technology",
       "tag": "Health-Tech",
-      "body": "Compliance, Clinical validation, Ethical governance, Implementation, Workforce training and Investment frameworks",
+      "body": "Digital health strategy, Technology Implementation, Regulatory Compliance and Tech tailoring",
       "capabilities": [
         "Knowledge Management",
         "Implementation",
