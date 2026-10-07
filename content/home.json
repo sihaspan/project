@@ -10,20 +10,7 @@
     "primaryButton": "Start a conversation",
     "secondaryButton": "See how we work"
   },
-  "strip": [
-    {
-      "name": "Healthcare Organizations",
-      "detail": "Medical centers, Hospitals and Health networks"
-    },
-    {
-      "name": "Public Institutions",
-      "detail": "Governments & Counties"
-    },
-    {
-      "name": "Development Partners",
-      "detail": "Local & International"
-    }
-  ],
+  "strip": [],
   "why": {
     "head": {
       "kicker": "Why SihaSpan",
