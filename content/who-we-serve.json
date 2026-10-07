@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "Who We Serve — SihaSpan",
-    "description": "Healthcare providers, insurers, government agencies, NGOs, foundations and health-technology companies — advisory sized to every mandate across the health ecosystem."
+    "description": "Healthcare organizations, Public institutions and Development partners ; advisory metered to every mandate across the health ecosystem."
   },
   "head": {
     "kicker": "Who we serve",
@@ -10,28 +10,16 @@
   },
   "items": [
     {
-      "title": "Healthcare providers",
-      "body": "Hospitals, clinics and networks planning growth or resolving operational strain."
+      "title": "Healthcare organizations",
+      "body": "Individuals, Medical clinics, Hospitals and networks planning growth or resolving operational strain."
     },
     {
-      "title": "Insurers",
-      "body": "Health financing organisations shaping products, claims and provider networks."
+      "title": "Public Institutions",
+      "body": "Optimize public health frameworks, Operational efficiency and Policy Design"
     },
     {
-      "title": "Government agencies",
-      "body": "Ministries and regulators developing policy, standards and oversight capacity."
-    },
-    {
-      "title": "NGOs",
-      "body": "Implementing partners delivering programmes on the ground."
-    },
-    {
-      "title": "Foundations",
-      "body": "Funders looking for rigorous evaluation and evidence of impact."
-    },
-    {
-      "title": "Health-tech companies",
-      "body": "Digital health innovators navigating clinical and regulatory realities."
+      "title": "Development partners",
+      "body": "Specialized advisory services and localized reality"
     }
   ]
 }
