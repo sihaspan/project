@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "Who We Serve — SihaSpan",
-    "description": "Healthcare organizations, Public institutions and Development partners ; advisory metered to every mandate across the health ecosystem."
+    "description": "Healthcare organizations, public institutions and development partners ; advisory metered to every mandate across the health ecosystem."
   },
   "head": {
     "kicker": "Who we serve",
@@ -11,7 +11,7 @@
   "items": [
     {
       "title": "Healthcare organizations",
-      "body": "Individuals, Medical clinics, Hospitals and networks planning growth or resolving operational strain."
+      "body": "Medical centers, hospitals and networks planning  to start, expand or resolve operational strain."
     },
     {
       "title": "Public Institutions",
@@ -19,7 +19,7 @@
     },
     {
       "title": "Development partners",
-      "body": "Specialized advisory services and localized reality"
+      "body": "Community engagement, specialized advisory services and localized reality within communities and institutions."
     }
   ]
 }
