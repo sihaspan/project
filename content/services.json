@@ -43,17 +43,6 @@
       ]
     },
     {
-      "mark": "D",
-      "title": "Digital Health",
-      "tag": "Health-Tech",
-      "body": "Roadmap development, Clinical safety standards, Vendor selection, User -centric design and Investment readiness.",
-      "capabilities": [
-        "Digital Strategy",
-        "Regulatory Compliance",
-        "Implementation and Workforce Adoption"
-      ]
-    },
-    {
       "mark": "A",
       "title": "Specialised Assignments",
       "tag": "Bespoke",
@@ -62,6 +51,17 @@
         "Technical Review",
         "Project Validation",
         "Change Management"
+      ]
+    },
+    {
+      "mark": "HT",
+      "title": "Health Technology",
+      "tag": "Health-Tech",
+      "body": "Compliance, Clinical validation, Ethical governance, Implementation, Workforce training and Investment frameworks",
+      "capabilities": [
+        "Knowledge Management",
+        "Implementation",
+        "Ecosystem Scaling"
       ]
     }
   ],
