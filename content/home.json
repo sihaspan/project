@@ -1,47 +1,39 @@
 {
   "seo": {
-    "title": "SihaSpan — Stronger Health Systems for Better Care",
-    "description": "SihaSpan helps healthcare providers, insurers, government agencies, NGOs, foundations and health-technology companies design and deliver services that hold up under real-world pressure."
+    "title": "SihaSpan — Stronger Health Systems for Better Outcomes",
+    "description": "SihaSpan works with healthcare organizations, public institutions, and development partners to design, strengthen, and deliver services across the health ecosystem ; translating strategy into practical solutions that perform in the real world."
   },
   "hero": {
     "eyebrow": "Health systems advisory",
     "heading": "Stronger health systems for better care.",
-    "lede": "SihaSpan helps providers, insurers, government agencies, NGOs, foundations and health-technology companies design and deliver services that hold up under real-world pressure.",
+    "lede": "SihaSpan works with healthcare organizations, public institutions, and development partners to design, strengthen, and deliver services across the health ecosystem ; translating strategy into practical solutions that perform in the real world.",
     "primaryButton": "Start a conversation",
     "secondaryButton": "See how we work"
   },
   "strip": [
     {
-      "name": "Providers",
-      "detail": "hospitals & clinics"
+      "name": "Healthcare Organizations",
+      "detail": "Medical centers, Hospitals and Health networks"
     },
     {
-      "name": "Insurers",
-      "detail": "health financing"
+      "name": "Public Institutions",
+      "detail": "Governments & Counties"
     },
     {
-      "name": "Government",
-      "detail": "policy & regulation"
-    },
-    {
-      "name": "NGOs & foundations",
-      "detail": "programme delivery"
-    },
-    {
-      "name": "Health-tech",
-      "detail": "digital health"
+      "name": "Development Partners",
+      "detail": "Local & International"
     }
   ],
   "why": {
     "head": {
       "kicker": "Why SihaSpan",
       "heading": "Advisory that gets implemented.",
-      "description": "We've seen too many good strategies stall at handover. Our approach is designed to survive contact with the day-to-day."
+      "description": "Good strategies often stall at handover ; our approach is designed to survive contact with the day-to-day."
     },
     "items": [
       {
         "title": "Practical, not theoretical",
-        "body": "Every recommendation is sized to what your team can actually implement, with your budget and timeline."
+        "body": "Every recommendation is metered to what your team can actually implement, with your budget and timeline."
       },
       {
         "title": "Embedded delivery",
@@ -57,7 +49,7 @@
     "head": {
       "kicker": "What we do",
       "heading": "Four areas of practice.",
-      "description": "From strategy through to specialised assignments — explore the full detail on our services page."
+      "description": "From strategy through to specialized assignments ; explore the full detail on our services page."
     },
     "buttonText": "View all services"
   },
