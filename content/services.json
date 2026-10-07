@@ -1,11 +1,11 @@
 {
   "seo": {
     "title": "Services — SihaSpan",
-    "description": "Four areas of practice: Strategy & Growth, Health Facility Development, Clinical Governance & Quality, and Specialised Assignments for the healthcare ecosystem."
+    "description": "Five areas of practice: Strategy & Growth, Health Facility Development, Clinical Governance & Quality, Digital Health and Specialized Assignments for the healthcare ecosystem."
   },
   "head": {
     "kicker": "What we do",
-    "heading": "Four areas of practice.",
+    "heading": "Five areas of practice.",
     "lede": "Each engagement is scoped to the problem in front of you, drawing on whichever of these areas it touches."
   },
   "items": [
@@ -13,9 +13,9 @@
       "mark": "S",
       "title": "Strategy & Growth",
       "tag": "Direction",
-      "body": "Market entry, service-line expansion and positioning for providers, insurers and health-tech companies deciding where to invest next.",
+      "body": "Market entry, service-line strategy, scenario planning, competitive positioning, and opportunity assessment.",
       "capabilities": [
-        "Financial Management",
+        "Scenario Planning",
         "Investment Planning",
         "Strategic Planning"
       ]
@@ -24,33 +24,41 @@
       "mark": "F",
       "title": "Health Facility Development",
       "tag": "Infrastructure",
-      "body": "Feasibility, planning and project oversight for new and expanding health facilities, from concept through to commissioning.",
+      "body": "Needs Assessment, Workflow design and project oversight for new and expanding health facilities, from concept through to commissioning.",
       "capabilities": [
         "Pre-Feasibility",
         "Feasibility",
-        "Service Design",
-        "Digital Health"
+        "Service Design"
       ]
     },
     {
       "mark": "C",
       "title": "Clinical Governance & Quality",
       "tag": "Standards",
-      "body": "Governance frameworks, quality systems and compliance support that hold up to regulatory and accreditation scrutiny.",
+      "body": "Governance frameworks, quality systems and compliance tool kits that hold up to regulatory and accreditation scrutiny.",
       "capabilities": [
         "Quality",
         "Systems",
-        "Performance",
         "Leadership"
+      ]
+    },
+    {
+      "mark": "D",
+      "title": "Digital Health",
+      "tag": "Health-Tech",
+      "body": "Roadmap development, Clinical safety standards, Vendor selection, User -centric design and Investment readiness.",
+      "capabilities": [
+        "Digital Strategy",
+        "Regulatory Compliance",
+        "Implementation and Workforce Adoption"
       ]
     },
     {
       "mark": "A",
       "title": "Specialised Assignments",
       "tag": "Bespoke",
-      "body": "Focused, time-bound assignments for government agencies, NGOs and foundations — research, evaluation and technical support.",
+      "body": "Focused, time-bound assignments ; research, training, technical reviews, board representation.",
       "capabilities": [
-        "Due Diligence",
         "Technical Review",
         "Project Validation",
         "Change Management"
