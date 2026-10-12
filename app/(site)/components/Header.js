@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/who-we-serve", label: "Who we serve" },
+  { href: "/blog", label: "Insights" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -31,7 +32,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={pathname === link.href ? "active" : ""}
+              className={pathname === link.href || (link.href !== "/" && pathname.startsWith(`${link.href}/`)) ? "active" : ""}
               onClick={() => setOpen(false)}
             >
               {link.label}

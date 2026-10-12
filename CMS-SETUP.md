@@ -70,10 +70,23 @@ Invite the client's GitHub account as a collaborator on the repo with **Write** 
 | Services page | Each service (name, letter icon, tag, description, capabilities) — also feeds the Home page service cards |
 | Who we serve page | Sector cards |
 | Contact page | Heading text |
+| Blog posts | Add / edit / delete articles (title, date, summary, cover image, rich-text body) |
+| Blog page text | Heading and intro on the /blog page |
 | Site settings | Phone, WhatsApp, location, social links (empty = hidden), footer text |
 | Every page | SEO title and description |
 
 Not editable in the CMS (needs a developer): navigation links, layout/design, logos, the contact form's behaviour.
+
+## Adding a blog post
+
+1. Go to `/admin` → **Blog posts** → **Create entry**.
+2. Fill in the title (the URL address is created from it), publish date, a short summary, an optional cover image, then write the article. The editor supports headings, bold/italic, lists, quotes, links, dividers and inline images.
+3. Click **Save**. The post appears at `/blog/your-address` and on the `/blog` list about a minute later, and is added to the sitemap automatically.
+
+- **Draft:** tick *Draft* to save work without publishing it.
+- **Scheduling:** set a future publish date and the post stays hidden until that day (the site refreshes hourly).
+- Images are stored in `public/images/posts/` in the repo. Keep them under ~1 MB for fast loading.
+- Deleting a post in the CMS removes it from the site on the next deploy.
 
 ## Tips for the client
 - Changes go live about a minute after clicking **Save**.

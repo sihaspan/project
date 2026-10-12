@@ -1,4 +1,4 @@
-import { config, fields, singleton } from "@keystatic/core";
+import { collection, config, fields, singleton } from "@keystatic/core";
 
 /**
  * Content is stored as JSON files in /content and committed to GitHub.
@@ -85,11 +85,85 @@ export default config({
     brand: { name: "SihaSpan — Content" },
     navigation: {
       Pages: ["home", "about", "services", "whoWeServe", "contact"],
+      Blog: ["posts", "blog"],
       Site: ["settings"],
     },
   },
 
+  collections: {
+    // ------------------------------------------------ Blog posts
+    posts: collection({
+      label: "Blog posts",
+      slugField: "title",
+      path: "content/posts/*/",
+      columns: ["publishedDate", "draft"],
+      entryLayout: "content",
+      schema: {
+        title: fields.slug({
+          name: { label: "Title" },
+          slug: {
+            label: "URL address",
+            description:
+              "Created from the title. This becomes /blog/your-address — avoid changing it after publishing.",
+          },
+        }),
+        draft: fields.checkbox({
+          label: "Draft (hide from the website)",
+          description:
+            "Tick this to save your work without publishing. Untick it when you're ready to go live.",
+          defaultValue: false,
+        }),
+        publishedDate: fields.date({
+          label: "Publish date",
+          defaultValue: { kind: "today" },
+          validation: { isRequired: true },
+        }),
+        author: fields.text({ label: "Author", defaultValue: "SihaSpan Team" }),
+        excerpt: fields.text({
+          label: "Short summary",
+          description:
+            "Shown on the blog list and in Google results. One or two sentences.",
+          multiline: true,
+          validation: { isRequired: true, length: { max: 300 } },
+        }),
+        coverImage: fields.image({
+          label: "Cover image (optional)",
+          description: "Wide images work best (e.g. 1600 × 900).",
+          directory: "public/images/posts",
+          publicPath: "/images/posts/",
+        }),
+        coverAlt: fields.text({
+          label: "Cover image description (for accessibility)",
+        }),
+        content: fields.document({
+          label: "Article",
+          formatting: true,
+          dividers: true,
+          links: true,
+          images: {
+            directory: "public/images/posts",
+            publicPath: "/images/posts/",
+          },
+        }),
+      },
+    }),
+  },
+
   singletons: {
+    // ------------------------------------------------ Blog page text
+    blog: singleton({
+      label: "Blog page text",
+      path: "content/blog",
+      format: { data: "json" },
+      schema: {
+        seo: seo(),
+        head: pageHead(),
+        emptyMessage: fields.text({
+          label: "Message shown when there are no posts yet",
+        }),
+      },
+    }),
+
     // ------------------------------------------------ Site-wide settings
     settings: singleton({
       label: "Site settings",
