@@ -72,6 +72,7 @@ Invite the client's GitHub account as a collaborator on the repo with **Write** 
 | Contact page | Heading text |
 | Blog posts | Add / edit / delete articles (title, date, summary, cover image, rich-text body) |
 | Blog page text | Heading and intro on the /blog page |
+| Insights page text | Heading and intro on the /insights page |
 | Site settings | Phone, WhatsApp, location, social links (empty = hidden), footer text |
 | Every page | SEO title and description |
 
@@ -83,6 +84,7 @@ Not editable in the CMS (needs a developer): navigation links, layout/design, lo
 2. Fill in the title (the URL address is created from it), publish date, a short summary, an optional cover image, then write the article. The editor supports headings, bold/italic, lists, quotes, links, dividers and inline images.
 3. Click **Save**. The post appears at `/blog/your-address` and on the `/blog` list about a minute later, and is added to the sitemap automatically.
 
+- **Blog or Insight:** the *Where should this appear?* field decides whether a post shows on the Blog page (`/blog`) or the Insights page (`/insights`). Older posts count as Blog.
 - **Draft:** tick *Draft* to save work without publishing it.
 - **Scheduling:** set a future publish date and the post stays hidden until that day (the site refreshes hourly).
 - Images are stored in `public/images/posts/` in the repo. Keep them under ~1 MB for fast loading.

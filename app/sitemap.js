@@ -3,7 +3,7 @@ import { getPosts } from "@/lib/content";
 const SITE_URL = "https://sihaspan.com"; // TODO: replace with the live production domain
 
 export default async function sitemap() {
-  const routes = ["", "/about", "/services", "/who-we-serve", "/blog", "/contact"];
+  const routes = ["", "/about", "/services", "/who-we-serve", "/insights", "/blog", "/contact"];
   const posts = await getPosts();
 
   return [
@@ -14,7 +14,7 @@ export default async function sitemap() {
       priority: route === "" ? 1 : 0.7,
     })),
     ...posts.map((post) => ({
-      url: `${SITE_URL}/blog/${post.slug}`,
+      url: `${SITE_URL}${post.category === "insight" ? "/insights" : "/blog"}/${post.slug}`,
       lastModified: new Date(post.publishedDate),
       changeFrequency: "yearly",
       priority: 0.6,

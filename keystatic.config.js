@@ -85,7 +85,7 @@ export default config({
     brand: { name: "SihaSpan — Content" },
     navigation: {
       Pages: ["home", "about", "services", "whoWeServe", "contact"],
-      Blog: ["posts", "blog"],
+      Blog: ["posts", "blog", "insights"],
       Site: ["settings"],
     },
   },
@@ -104,8 +104,18 @@ export default config({
           slug: {
             label: "URL address",
             description:
-              "Created from the title. This becomes /blog/your-address — avoid changing it after publishing.",
+              "Created from the title. This becomes the end of the article's web address — avoid changing it after publishing.",
           },
+        }),
+        category: fields.select({
+          label: "Where should this appear?",
+          description:
+            "Blog = news and updates on the Blog page. Insight = longer thought-leadership pieces on the Insights page.",
+          options: [
+            { label: "Blog", value: "blog" },
+            { label: "Insight", value: "insight" },
+          ],
+          defaultValue: "blog",
         }),
         draft: fields.checkbox({
           label: "Draft (hide from the website)",
@@ -150,7 +160,7 @@ export default config({
   },
 
   singletons: {
-    // ------------------------------------------------ Blog page text
+    // ------------------------------------------------ Blog + Insights page text
     blog: singleton({
       label: "Blog page text",
       path: "content/blog",
@@ -160,6 +170,18 @@ export default config({
         head: pageHead(),
         emptyMessage: fields.text({
           label: "Message shown when there are no posts yet",
+        }),
+      },
+    }),
+    insights: singleton({
+      label: "Insights page text",
+      path: "content/insights",
+      format: { data: "json" },
+      schema: {
+        seo: seo(),
+        head: pageHead(),
+        emptyMessage: fields.text({
+          label: "Message shown when there are no insights yet",
         }),
       },
     }),
