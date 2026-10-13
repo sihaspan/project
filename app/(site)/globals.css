@@ -409,14 +409,29 @@ footer{border-top:1px solid var(--line); padding-top:56px;}
 .cta-band .btn-primary:hover{transform:translateY(-2px); box-shadow:0 16px 40px -12px rgba(0,0,0,0.5);}
 
 /* ===== Scroll reveal ===== */
-.reveal{opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease;}
-.reveal-visible{opacity:1; transform:translateY(0);}
+.reveal{opacity:0; transform:translateY(20px); transition:opacity .7s cubic-bezier(.22,.8,.3,1), transform .7s cubic-bezier(.22,.8,.3,1), filter .7s ease;}
+.reveal--left{transform:translateX(-36px);}
+.reveal--right{transform:translateX(36px);}
+.reveal--scale{transform:translateY(14px) scale(.92);}
+.reveal--blur{transform:translateY(14px); filter:blur(10px);}
+.reveal-visible{opacity:1; transform:none; filter:none;}
 
 /* ===== Page transition ===== */
-.page-fade{animation:pageIn .5s ease both;}
+.page-fade{animation:pageIn .7s cubic-bezier(.22,.8,.3,1) both;}
 @keyframes pageIn{
-  from{opacity:0; transform:translateY(10px);}
-  to{opacity:1; transform:translateY(0);}
+  from{opacity:0; transform:translateY(18px); filter:blur(6px);}
+  to{opacity:1; transform:translateY(0); filter:none;}
+}
+.route-wipe{
+  position:fixed; inset:0; z-index:200; pointer-events:none;
+  background:linear-gradient(135deg, #241016, #7A1149);
+  transform:translateY(0); border-radius:0 0 50% 50% / 0 0 14vh 14vh;
+  animation:routeWipe .75s cubic-bezier(.77,0,.18,1) forwards;
+}
+@keyframes routeWipe{
+  0%{transform:translateY(0);}
+  35%{transform:translateY(0);}
+  100%{transform:translateY(-110%);}
 }
 
 /* ===== Ecosystem diagram entrance ===== */
@@ -514,6 +529,33 @@ footer{border-top:1px solid var(--line); padding-top:56px;}
   .hero-video{background:#1A0D11 url("/video/hero1-poster.jpg") center/cover no-repeat;}
 }
 
+/* ===== Parallax + morph ===== */
+.hero-video-inner{position:absolute; left:0; right:0; top:-130px; bottom:-130px; will-change:transform;}
+.hero-grid, .hero-panel{will-change:transform;}
+.section-blobs{position:relative; overflow:hidden;}
+.section-blobs > .wrap{position:relative; z-index:1;}
+.blob-layer{position:absolute; pointer-events:none; z-index:0; will-change:transform;}
+.morph-blob{width:100%; height:100%; animation:morphShape 16s ease-in-out infinite;}
+.morph-blob--a{background:radial-gradient(circle at 30% 30%, color-mix(in srgb, var(--gold) 26%, transparent), transparent 70%);}
+.morph-blob--b{background:radial-gradient(circle at 60% 40%, color-mix(in srgb, var(--sage) 24%, transparent), transparent 70%); animation-duration:21s; animation-direction:reverse;}
+@keyframes morphShape{
+  0%,100%{border-radius:60% 40% 30% 70% / 60% 30% 70% 40%; transform:rotate(0deg) scale(1);}
+  33%{border-radius:30% 60% 70% 40% / 50% 60% 30% 60%; transform:rotate(40deg) scale(1.08);}
+  66%{border-radius:50% 50% 35% 65% / 35% 65% 45% 55%; transform:rotate(-25deg) scale(.94);}
+}
+.blob-why-1{width:460px; height:460px; top:-120px; right:-140px;}
+.blob-why-2{width:380px; height:380px; bottom:-120px; left:-120px;}
+.blob-what-1{width:520px; height:520px; top:20%; right:-200px;}
+.blob-cta-1{width:420px; height:420px; top:-140px; left:-100px;}
+.blob-cta-2{width:360px; height:360px; bottom:-150px; right:-60px;}
+.cta-band .morph-blob--a, .cta-band .morph-blob--b{background:radial-gradient(circle at 40% 40%, rgba(255,255,255,0.16), transparent 70%);}
+
+.hero-wave{position:absolute; left:0; bottom:-1px; width:100%; height:64px; z-index:1; display:block; pointer-events:none;}
+
+/* shapes morph on hover */
+.service-mark{transition:border-radius .6s cubic-bezier(.22,.8,.3,1), transform .6s cubic-bezier(.22,.8,.3,1);}
+.preview-card:hover .service-mark{border-radius:38% 62% 55% 45% / 55% 40% 60% 45%; transform:rotate(-8deg) scale(1.06);}
+
 /* ===== Responsive ===== */
 @media (max-width:880px){
   .nav-right{display:flex; align-items:center; gap:10px;}
@@ -560,7 +602,10 @@ footer{border-top:1px solid var(--line); padding-top:56px;}
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto;}
   *{transition:none !important; animation:none !important;}
-  .reveal{opacity:1 !important; transform:none !important;}
+  .reveal{opacity:1 !important; transform:none !important; filter:none !important;}
+  .route-wipe{display:none !important;}
+  .morph-blob{animation:none !important;}
+  .hero-video-inner, .hero-grid, .hero-panel{transform:none !important;}
   .diagram-line{stroke-dashoffset:0 !important;}
   .diagram-node, .diagram-center{opacity:1 !important; transform:none !important;}
   .page-fade{animation:none !important;}

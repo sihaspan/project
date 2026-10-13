@@ -19,6 +19,7 @@ export default function HeroVideo() {
 
   return (
     <div className="hero-video" aria-hidden="true">
+      <div className="hero-video-inner" data-parallax="0.3" data-parallax-max="130">
       <video
         ref={ref}
         autoPlay
@@ -31,6 +32,7 @@ export default function HeroVideo() {
       >
         <source src="/video/hero1-web.mp4" type="video/mp4" />
       </video>
+      </div>
       <div className="hero-video-overlay" />
     </div>
   );
