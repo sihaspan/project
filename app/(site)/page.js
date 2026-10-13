@@ -1,6 +1,7 @@
 import Link from "next/link";
 import EcosystemDiagram from "./components/EcosystemDiagram";
 import Reveal from "./components/Reveal";
+import HeroVideo from "./components/HeroVideo";
 import { getHome, getServices } from "@/lib/content";
 
 export async function generateMetadata() {
@@ -14,7 +15,8 @@ export default async function Home() {
 
   return (
     <>
-      <section className="hero">
+      <section className="hero hero--video">
+        <HeroVideo />
         <div className="wrap hero-grid">
           <Reveal>
             <div className="eyebrow-plain">{hero.eyebrow}</div>
@@ -29,7 +31,9 @@ export default async function Home() {
               </Link>
             </div>
           </Reveal>
-          <EcosystemDiagram />
+          <div className="hero-panel">
+            <EcosystemDiagram />
+          </div>
         </div>
       </section>
 
