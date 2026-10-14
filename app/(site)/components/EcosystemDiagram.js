@@ -15,6 +15,8 @@ export default function EcosystemDiagram({ nodes = DEFAULT_NODES }) {
   const cx = 210;
   const cy = 210;
   const r = 150;
+  // Three circles sit in the upper part of the square, so trim the empty space below them.
+  const height = labels.length === 3 ? 352 : 420;
 
   const positions = labels.map((label, i) => {
     const angle = (Math.PI * 2 * i) / labels.length - Math.PI / 2;
@@ -24,7 +26,7 @@ export default function EcosystemDiagram({ nodes = DEFAULT_NODES }) {
   return (
     <div className="diagram-frame">
       <svg
-        viewBox="0 0 420 420"
+        viewBox={`0 0 420 ${height}`}
         role="img"
         aria-label={`Diagram showing ${SITE_NAME} at the centre, connected to ${labels.join(", ")}`}
       >
