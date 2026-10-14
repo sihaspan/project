@@ -15,7 +15,7 @@ export async function generateMetadata({ params }) {
   const post = await getPost(params.slug);
   if (!post) return {};
   return {
-    title: `${post.title} — Healthcare et Omnia`,
+    title: `${post.title} — SihaSpan`,
     description: post.excerpt,
     alternates: { canonical: `/insights/${post.slug}` },
     openGraph: {

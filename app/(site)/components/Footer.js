@@ -14,7 +14,7 @@ export default async function Footer() {
       <div className="wrap footer-grid">
         <div className="footer-brand">
           <div className="brand">
-            <BrandLockup size={48} />
+            <BrandLockup size={40} />
           </div>
           <p>{settings.footer.blurb}</p>
         </div>

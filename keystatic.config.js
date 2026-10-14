@@ -98,7 +98,7 @@ export default config({
     : { kind: "github", repo: GITHUB_REPO },
 
   ui: {
-    brand: { name: "Healthcare et Omnia — Content" },
+    brand: { name: "SihaSpan — Content" },
     navigation: {
       Pages: ["home", "about", "services", "contact"],
       Insights: ["posts", "insights"],
@@ -107,9 +107,9 @@ export default config({
   },
 
   collections: {
-    // ------------------------------------------------ Insights (articles)
+    // ------------------------------------------------ Insight articles
     posts: collection({
-      label: "Insights",
+      label: "Insight articles",
       slugField: "title",
       path: "content/posts/*/",
       columns: ["publishedDate", "draft"],
@@ -134,7 +134,7 @@ export default config({
           defaultValue: { kind: "today" },
           validation: { isRequired: true },
         }),
-        author: fields.text({ label: "Author", defaultValue: "Healthcare et Omnia Team" }),
+        author: fields.text({ label: "Author", defaultValue: "SihaSpan Team" }),
         excerpt: fields.text({
           label: "Short summary",
           description:
@@ -241,9 +241,11 @@ export default config({
               multiline: true,
             }),
             lede: fields.text({ label: "Intro paragraph", multiline: true }),
+            primaryButton: fields.text({ label: "Primary button text" }),
+            secondaryButton: fields.text({ label: "Secondary button text" }),
             tagline: fields.text({
-              label: "Tagline over the photo",
-              description: "One short phrase per line, e.g. People. / Systems. / Lasting impact.",
+              label: "Tagline over the photo (optional)",
+              description: "Leave empty to show no text over the photo. One short phrase per line.",
               multiline: true,
             }),
           },
@@ -251,9 +253,9 @@ export default config({
         ),
         strip: fields.array(
           fields.object({
-            number: fields.text({ label: "Number (e.g. 01)" }),
+            number: fields.text({ label: "Number (optional, e.g. 01)" }),
             name: fields.text({ label: "Title" }),
-            detail: fields.text({ label: "Detail", multiline: true }),
+            detail: fields.text({ label: "Detail (optional)", multiline: true }),
             icon: iconField(),
           }),
           {
@@ -266,17 +268,29 @@ export default config({
             head: sectionHead(),
             items: titleBodyList("Highlights", "Highlight"),
           },
-          { label: "“Why Healthcare et Omnia” section" }
+          { label: "“Why SihaSpan” section" }
         ),
         whatWeDo: fields.object(
           {
             head: sectionHead(),
+            buttonText: fields.text({ label: "“View all” button text" }),
           },
           {
-            label: "“Our services” section",
+            label: "“What we do” section",
             description:
               "The five service columns here are pulled automatically from the Services page.",
           }
+        ),
+        diagram: fields.object(
+          {
+            nodes: fields.array(fields.text({ label: "Label" }), {
+              label: "Circles around the logo",
+              description: "Each label becomes one circle. Three works best; up to six fit.",
+              itemLabel: (props) => props.value || "Circle",
+              validation: { length: { min: 1, max: 6 } },
+            }),
+          },
+          { label: "Logo diagram" }
         ),
         cta: ctaBand(),
       },
@@ -329,7 +343,7 @@ export default config({
 
     // ------------------------------------------------ Services
     services: singleton({
-      label: "Services & Who we serve page",
+      label: "Services & who we serve page",
       path: "content/services",
       format: { data: "json" },
       schema: {
@@ -340,11 +354,7 @@ export default config({
             icon: iconField(),
             title: fields.text({ label: "Service name" }),
             tag: fields.text({ label: "Short tag (e.g. Direction)" }),
-            summary: fields.text({
-              label: "Short summary (shown on the home page)",
-              multiline: true,
-            }),
-            body: fields.text({ label: "Description (shown on the Services page)", multiline: true }),
+            body: fields.text({ label: "Description", multiline: true }),
             capabilities: fields.array(fields.text({ label: "Capability" }), {
               label: "Capabilities",
               itemLabel: (props) => props.value || "Capability",
@@ -360,7 +370,10 @@ export default config({
             head: pageHead(),
             items: titleBodyList("Sectors served", "Sector"),
           },
-          { label: "“Who we serve” section" }
+          {
+            label: "“Who we serve” section",
+            description: "Shown below the services on the Services page.",
+          }
         ),
         cta: ctaBand(),
       },

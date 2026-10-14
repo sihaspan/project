@@ -1,7 +1,7 @@
 {
   "seo": {
-    "title": "Services & Who We Serve — Healthcare et Omnia",
-    "description": "Five areas of practice across strategy, facility development, clinical governance, health technology and specialized advisory, for healthcare organizations, public institutions and development partners."
+    "title": "Services & Who We Serve — SihaSpan",
+    "description": "Five areas of practice: Strategy & Growth, Health Facility Development, Clinical Governance & Quality, Health Technology and Specialized Advisory."
   },
   "head": {
     "kicker": "What we do",
@@ -18,8 +18,7 @@
         "Scenario Planning",
         "Investment Planning",
         "Strategic Planning"
-      ],
-      "summary": "Market entry, service-line expansion, positioning and investment decisions."
+      ]
     },
     {
       "icon": "technology",
@@ -30,8 +29,7 @@
         "Knowledge Management",
         "Implementation",
         "Ecosystem Scaling"
-      ],
-      "summary": "Digital health, AI, health information systems and technology implementation."
+      ]
     },
     {
       "icon": "governance",
@@ -42,8 +40,7 @@
         "Quality",
         "Systems",
         "Leadership"
-      ],
-      "summary": "Clinical standards, quality improvement, patient safety, governance and performance."
+      ]
     },
     {
       "icon": "facility",
@@ -54,20 +51,18 @@
         "Pre-Feasibility",
         "Feasibility",
         "Service Design"
-      ],
-      "summary": "Feasibility, service planning, facility development, operational models and sustainability."
+      ]
     },
     {
       "icon": "advisory",
-      "title": "Specialized Advisory",
+      "title": "Specialised Assignments",
       "tag": "Bespoke",
       "body": "Focused, time-bound assignments ; research, training, technical reviews, board representation.",
       "capabilities": [
         "Technical Review",
         "Project Validation",
         "Change Management"
-      ],
-      "summary": "Complex, bespoke assignments that cut across healthcare strategy, systems and implementation."
+      ]
     }
   ],
   "serve": {

@@ -7,6 +7,7 @@ import BrandLockup from "./BrandLockup";
 import Icon from "./Icons";
 import ThemeToggle from "./ThemeToggle";
 
+// "Who we serve" and "Blog" stay reachable from the footer.
 const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
@@ -23,7 +24,7 @@ export default function Header() {
     <header>
       <div className="nav">
         <Link href="/" className="brand" onClick={() => setOpen(false)}>
-          <BrandLockup />
+          <BrandLockup size={44} />
         </Link>
 
         <nav className={`links${open ? " open" : ""}`} aria-label="Main">
@@ -47,7 +48,7 @@ export default function Header() {
         <div className="nav-right">
           <ThemeToggle />
           <Link href="/contact" className="nav-cta" onClick={() => setOpen(false)}>
-            Get in Touch
+            Talk to us
             <Icon name="arrow" size={20} strokeWidth={1.6} />
           </Link>
           <button

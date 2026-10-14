@@ -63,7 +63,7 @@ body, header, .preview-card, .contact-card, .approach .step, .serve-cell, .servi
 .btn-primary, .btn-secondary, .nav-cta, .social-chip, .capability-list li, .theme-toggle{
   transition: background-color .35s ease, border-color .35s ease, color .35s ease, box-shadow .35s ease;
 }
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth; scroll-padding-top:6.5rem;}
 body{
   margin:0;
   background:var(--paper);
@@ -93,15 +93,29 @@ header{
   padding:1.1rem var(--gutter); max-width:1600px; margin:0 auto;
 }
 .brand{display:flex; align-items:center; gap:.9rem; text-decoration:none; color:var(--ink);}
-.brand-mark{position:relative; display:inline-flex; flex:none; color:var(--accent);}
-.brand-text{display:flex; flex-direction:column; gap:.4rem;}
-.brand-name{
-  font-family:var(--font-serif); font-size:clamp(1.55rem,2.1vw,2rem); font-weight:500;
-  line-height:1; letter-spacing:-0.015em; white-space:nowrap;
+.brand-mark{
+  position:relative; display:inline-flex; align-items:center; justify-content:center;
+  flex:none; border-radius:50%;
+  animation: logoPulse 2.6s ease-in-out infinite;
 }
-.brand-tagline{
-  font-size:.72rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase;
-  color:var(--slate); line-height:1;
+.brand-mark-img{position:absolute; inset:0; width:100%; height:100%; object-fit:contain;}
+.brand-mark-img--dark{opacity:0;}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .brand-mark-img--light{opacity:0;}
+  :root:not([data-theme="light"]) .brand-mark-img--dark{opacity:1;}
+}
+:root[data-theme="dark"] .brand-mark-img--light{opacity:0;}
+:root[data-theme="dark"] .brand-mark-img--dark{opacity:1;}
+@keyframes logoPulse{
+  0%, 100%{transform:scale(1);}
+  15%{transform:scale(1.1);}
+  30%{transform:scale(1);}
+  45%{transform:scale(1.06);}
+  60%{transform:scale(1);}
+}
+.brand-name{
+  font-family:var(--font-serif); font-size:clamp(1.5rem,2vw,1.9rem); font-weight:500;
+  line-height:1; letter-spacing:-0.015em; white-space:nowrap;
 }
 nav.links{display:flex; gap:clamp(1.2rem,2.7vw,3.3rem); justify-self:center; font-size:1rem;}
 nav.links a{
@@ -210,6 +224,7 @@ nav.links a.active::after{width:100%;}
   font-size:clamp(1.2rem, 1.8vw, 1.85rem); line-height:1.2; color:#fff;
   text-shadow:0 1px 16px rgba(0,25,20,.5);
 }
+.hero-ctas{display:flex; flex-wrap:wrap; gap:.8rem; margin-top:1.8rem;}
 .tagline-rule{display:block; width:3.2rem; height:2px; margin-top:1.15rem; background:#A8E6DD;}
 
 /* ===== Buttons ===== */
@@ -264,6 +279,12 @@ nav.links a.active::after{width:100%;}
 .svc-link:focus-visible{outline:none;}
 .svc-link:focus-visible .icon{outline:2px solid var(--accent); outline-offset:4px; border-radius:2px;}
 
+.services-more{margin-top:clamp(2rem,3vw,3rem);}
+.diagram-section{padding:0 0 clamp(3rem,5vw,5rem); background:var(--paper);}
+.diagram-panel{
+  max-width:34rem; margin:0 auto; padding:1.5rem;
+  background:var(--card); border:1px solid var(--line); border-radius:var(--radius-lg); box-shadow:var(--shadow-md);
+}
 .why{background:var(--paper-alt);}
 
 /* ===== Section base ===== */
@@ -320,6 +341,7 @@ section{padding:96px 0;}
 .approach .step p{color:var(--slate); font-size:0.92rem;}
 
 /* ===== Who we serve ===== */
+.serve-section{background:var(--paper-alt); margin-top:clamp(2.5rem,5vw,4.5rem);}
 .serve-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
 .serve-cell{
   background:var(--card); border:1px solid var(--line); border-radius:var(--radius-md);
@@ -394,9 +416,8 @@ footer{border-top:1px solid var(--line); padding-top:56px;}
 
 /* ===== Page head (sub-pages) ===== */
 .page-head{max-width:70ch; margin-bottom:52px;}
+.page-head h2{font-size:clamp(1.9rem, 3.4vw, 2.6rem); margin-top:10px;}
 .page-head h1{font-size:clamp(2.1rem, 4vw, 3rem); margin-top:10px;}
-.page-head .page-subhead{font-size:clamp(1.7rem, 3vw, 2.3rem); margin-top:10px;}
-#who-we-serve{scroll-margin-top:90px; padding-top:48px;}
 .page-lede{color:var(--slate); font-size:1.1rem; margin-top:18px; max-width:56ch;}
 
 /* ===== Home: highlights & service preview ===== */
@@ -658,8 +679,7 @@ footer{border-top:1px solid var(--line); padding-top:56px;}
 }
 @media (max-width:460px){
   .service-cols{grid-template-columns:1fr;}
-  .brand-tagline{letter-spacing:.12em;}
-  .brand-name{font-size:1.35rem;}
+    .brand-name{font-size:1.35rem;}
 }
 
 /* ===== Legacy (not used by the current home page) =====
@@ -667,7 +687,7 @@ footer{border-top:1px solid var(--line); padding-top:56px;}
    Safe to delete together with their components if you won't bring them back. */
 .diagram-frame{position:relative;}
 .diagram-frame svg{width:100%; height:auto; overflow:visible;}
-.node-label{font-family:"Public Sans",sans-serif; font-size:11px; font-weight:600; fill:var(--slate);}
+.node-label{font-family:"Public Sans",sans-serif; font-size:12px; font-weight:600; fill:var(--slate);}
 .node-dot{fill:var(--paper); stroke:var(--accent); stroke-width:1.4; transition:stroke .2s ease;}
 .diagram-node:hover .node-dot{stroke-width:2.2;}
 .link-line{stroke:var(--line); stroke-width:1.4;}

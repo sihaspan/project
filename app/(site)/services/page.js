@@ -46,11 +46,11 @@ export default async function ServicesPage() {
         </div>
       </section>
 
-      <section id="who-we-serve" style={{ paddingBottom: "24px" }}>
+      <section className="serve-section" id="who-we-serve">
         <div className="wrap">
           <Reveal as="div" className="page-head">
             <div className="kicker">{serve.head.kicker}</div>
-            <h2 className="page-subhead">{serve.head.heading}</h2>
+            <h2>{serve.head.heading}</h2>
             <p className="page-lede">{serve.head.lede}</p>
           </Reveal>
 

@@ -65,23 +65,24 @@ Invite the client's GitHub account as a collaborator on the repo with **Write** 
 
 | CMS section | Controls |
 |---|---|
-| Home page | Hero, sector strip, "Why Healthcare et Omnia", section headings, call-to-action |
+| Home page | Hero, sector strip, "Why SihaSpan", section headings, call-to-action |
 | About page | Intro, body paragraphs, stats, "How we work" steps |
-| Services & Who we serve page | Each service (name, icon, tag, description, capabilities) — also feeds the Home page service cards — plus the "Who we serve" sector cards on the same page |
+| Services & who we serve page | Each service (name, icon, tag, summary, description, capabilities) — also feeds the Home page service columns — plus the "Who we serve" sector cards below them |
 | Contact page | Heading text |
-| Insights | Add / edit / delete articles (title, date, summary, cover image, rich-text body) |
+| Insight articles | Add / edit / delete articles (title, date, summary, cover image, rich-text body) |
 | Insights page text | Heading and intro on the /insights page |
 | Site settings | Phone, WhatsApp, location, social links (empty = hidden), footer text |
 | Every page | SEO title and description |
 
 Not editable in the CMS (needs a developer): navigation links, layout/design, logos, the contact form's behaviour.
 
-## Adding an insight
+## Adding an insight article
 
-1. Go to `/admin` → **Insights** → **Create entry**.
+1. Go to `/admin` → **Insight articles** → **Create entry**.
 2. Fill in the title (the URL address is created from it), publish date, a short summary, an optional cover image, then write the article. The editor supports headings, bold/italic, lists, quotes, links, dividers and inline images.
 3. Click **Save**. The article appears at `/insights/your-address` and on the `/insights` list about a minute later, and is added to the sitemap automatically.
 
+- The old `/blog` and `/who-we-serve` addresses redirect to `/insights` and the "Who we serve" section of `/services`.
 - **Draft:** tick *Draft* to save work without publishing it.
 - **Scheduling:** set a future publish date and the post stays hidden until that day (the site refreshes hourly).
 - Images are stored in `public/images/posts/` in the repo. Keep them under ~1 MB for fast loading.

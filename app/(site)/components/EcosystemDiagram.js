@@ -1,24 +1,24 @@
-// Each label is split into lines so it fits inside its circle.
-const NODES = [
-  ["Financial", "Management"],
-  ["Investment", "Planning"],
-  ["Strategic", "Planning"],
-];
+import { SITE_NAME } from "@/lib/site";
 
-export default function EcosystemDiagram() {
+const DEFAULT_NODES = ["Financial management", "Investment planning", "Strategic planning"];
+
+/** "Financial management" -> ["Financial", "management"] so it fits inside the circle. */
+const wrapLabel = (label) => {
+  const words = label.trim().split(/\s+/);
+  if (words.length < 2) return [label];
+  const mid = Math.ceil(words.length / 2);
+  return [words.slice(0, mid).join(" "), words.slice(mid).join(" ")];
+};
+
+export default function EcosystemDiagram({ nodes = DEFAULT_NODES }) {
+  const labels = nodes.filter(Boolean);
   const cx = 210;
-  const cy = 245; // lowered so the triangle of three circles sits centred in the frame
-  const r = 140;
-  const nodeR = 56;
+  const cy = 210;
+  const r = 150;
 
-  const positions = NODES.map((lines, i) => {
-    const angle = (Math.PI * 2 * i) / NODES.length - Math.PI / 2;
-    return {
-      lines,
-      label: lines.join(" "),
-      x: cx + r * Math.cos(angle),
-      y: cy + r * Math.sin(angle),
-    };
+  const positions = labels.map((label, i) => {
+    const angle = (Math.PI * 2 * i) / labels.length - Math.PI / 2;
+    return { label, x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle) };
   });
 
   return (
@@ -26,7 +26,7 @@ export default function EcosystemDiagram() {
       <svg
         viewBox="0 0 420 420"
         role="img"
-        aria-label="Diagram showing Healthcare et Omnia at the centre of the healthcare ecosystem, connected to financial management, investment planning and strategic planning"
+        aria-label={`Diagram showing ${SITE_NAME} at the centre, connected to ${labels.join(", ")}`}
       >
         <g>
           {positions.map((p, i) => (
@@ -43,7 +43,7 @@ export default function EcosystemDiagram() {
         </g>
 
         <g className="diagram-center">
-          <circle cx={cx} cy={cy} r={64} fill="none" stroke="var(--gold)" strokeWidth="1.2" className="diagram-pulse" />
+          <circle cx={cx} cy={cy} r={64} fill="none" stroke="var(--accent)" strokeWidth="1.2" className="diagram-pulse" />
           <circle cx={cx} cy={cy} r={58} fill="var(--ink)" />
           <image
             href="/logo-mark-cream.png"
@@ -64,18 +64,22 @@ export default function EcosystemDiagram() {
         </g>
 
         <g>
-          {positions.map((p, i) => (
-            <g key={p.label} className="diagram-node" style={{ animationDelay: `${300 + i * 90}ms` }}>
-              <circle cx={p.x} cy={p.y} r={nodeR} className="node-dot" />
-              <text x={p.x} y={p.y - 2} textAnchor="middle" className="node-label">
-                {p.lines.map((line, n) => (
-                  <tspan key={line + n} x={p.x} dy={n === 0 ? 0 : 14}>
-                    {line}
-                  </tspan>
-                ))}
-              </text>
-            </g>
-          ))}
+          {positions.map((p, i) => {
+            const rows = wrapLabel(p.label);
+            const firstY = p.y + 4 - ((rows.length - 1) * 15) / 2;
+            return (
+              <g key={p.label} className="diagram-node" style={{ animationDelay: `${300 + i * 90}ms` }}>
+                <circle cx={p.x} cy={p.y} r={56} className="node-dot" />
+                <text x={p.x} y={firstY} textAnchor="middle" className="node-label">
+                  {rows.map((row, k) => (
+                    <tspan key={row} x={p.x} dy={k === 0 ? 0 : 15}>
+                      {row}
+                    </tspan>
+                  ))}
+                </text>
+              </g>
+            );
+          })}
         </g>
       </svg>
     </div>

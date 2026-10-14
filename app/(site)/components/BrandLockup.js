@@ -1,15 +1,12 @@
 import Logo from "./Logo";
-import { SITE_NAME, SITE_TAGLINE } from "@/lib/site";
+import { SITE_NAME } from "@/lib/site";
 
-/** Mark + name + tagline, as in the header of the design. */
-export default function BrandLockup({ size = 56 }) {
+/** Logo mark + brand name. */
+export default function BrandLockup({ size = 44 }) {
   return (
     <>
       <Logo size={size} />
-      <span className="brand-text">
-        <span className="brand-name">{SITE_NAME}</span>
-        <span className="brand-tagline">{SITE_TAGLINE}</span>
-      </span>
+      <span className="brand-name">{SITE_NAME}</span>
     </>
   );
 }

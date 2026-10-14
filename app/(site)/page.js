@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import EcosystemDiagram from "./components/EcosystemDiagram";
 import Icon from "./components/Icons";
 import Reveal from "./components/Reveal";
 import { getHome, getServices } from "@/lib/content";
@@ -15,7 +16,7 @@ const lines = (text = "") => text.split("\n").filter(Boolean);
 
 export default async function Home() {
   const [home, services] = await Promise.all([getHome(), getServices()]);
-  const { hero, strip, why, whatWeDo, cta } = home;
+  const { hero, strip, why, whatWeDo, diagram, cta } = home;
 
   return (
     <>
@@ -41,17 +42,33 @@ export default async function Home() {
               ))}
             </h1>
             <p className="lede">{hero.lede}</p>
+            {hero.primaryButton || hero.secondaryButton ? (
+              <div className="hero-ctas">
+                {hero.primaryButton ? (
+                  <Link href="/contact" className="btn-primary">
+                    {hero.primaryButton}
+                  </Link>
+                ) : null}
+                {hero.secondaryButton ? (
+                  <Link href="/about" className="btn-secondary">
+                    {hero.secondaryButton}
+                  </Link>
+                ) : null}
+              </div>
+            ) : null}
           </div>
         </div>
 
-        <p className="hero-tagline">
-          {lines(hero.tagline).map((line) => (
-            <span key={line} className="line">
-              {line}
-            </span>
-          ))}
-          <span className="tagline-rule" aria-hidden="true" />
-        </p>
+        {hero.tagline ? (
+          <p className="hero-tagline">
+            {lines(hero.tagline).map((line) => (
+              <span key={line} className="line">
+                {line}
+              </span>
+            ))}
+            <span className="tagline-rule" aria-hidden="true" />
+          </p>
+        ) : null}
       </section>
 
       <section className="stats" aria-label="At a glance">
@@ -62,9 +79,9 @@ export default async function Home() {
                 <Icon name={item.icon} size={56} />
               </div>
               <div className="stat-body">
-                <p className="stat-num">{item.number}</p>
+                {item.number ? <p className="stat-num">{item.number}</p> : null}
                 <p className="stat-title">{item.name}</p>
-                <p className="stat-detail">{item.detail}</p>
+                {item.detail ? <p className="stat-detail">{item.detail}</p> : null}
               </div>
             </div>
           ))}
@@ -91,7 +108,7 @@ export default async function Home() {
               <li className="svc" key={s.title}>
                 <Icon name={s.icon} size={60} className="svc-icon" />
                 <h3>{s.title}</h3>
-                <p>{s.summary}</p>
+                <p>{s.capabilities.join(" · ")}</p>
                 <Link
                   href={`/services#${slugify(s.title)}`}
                   className="svc-link"
@@ -102,6 +119,19 @@ export default async function Home() {
               </li>
             ))}
           </ul>
+        </div>
+        <div className="wrap services-more">
+          <Link href="/services" className="btn-secondary">
+            {whatWeDo.buttonText}
+          </Link>
+        </div>
+      </section>
+
+      <section className="diagram-section">
+        <div className="wrap">
+          <div className="diagram-panel">
+            <EcosystemDiagram nodes={diagram.nodes} />
+          </div>
         </div>
       </section>
 

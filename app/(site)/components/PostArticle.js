@@ -8,12 +8,12 @@ const SITE_URL = "https://sihaspan.com"; // TODO: replace with the live producti
 export default function PostArticle({ post, basePath, backLabel }) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
+    "@type": "Article",
     headline: post.title,
     description: post.excerpt,
     datePublished: post.publishedDate,
-    author: { "@type": "Person", name: post.author || "Healthcare et Omnia Team" },
-    publisher: { "@type": "Organization", name: "Healthcare et Omnia" },
+    author: { "@type": "Person", name: post.author || "SihaSpan Team" },
+    publisher: { "@type": "Organization", name: "SihaSpan" },
     mainEntityOfPage: `${SITE_URL}${basePath}/${post.slug}`,
     ...(post.coverImage ? { image: `${SITE_URL}${post.coverImage}` } : {}),
   };
