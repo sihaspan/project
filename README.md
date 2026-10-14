@@ -1,6 +1,6 @@
-# SihaSpan — Website MVP (Next.js)
+# Healthcare et Omnia — Website MVP (Next.js)
 
-A single-page marketing site for SihaSpan, built with Next.js (App Router).
+A single-page marketing site for Healthcare et Omnia, built with Next.js (App Router).
 
 ## Getting started
 
@@ -15,8 +15,8 @@ Then open http://localhost:3000.
 
 - `/` — home: hero with an animated ecosystem diagram, highlights, a services preview and a closing call-to-action
 - `/about` — company overview, key stats, and the "how we work" process
-- `/services` — the four practice areas in detail
-- `/who-we-serve` — the six sectors served
+- `/services` — the practice areas in detail, plus who we serve
+- `/insights` — articles and perspectives
 - `/contact` — contact form and details
 
 ## Project structure

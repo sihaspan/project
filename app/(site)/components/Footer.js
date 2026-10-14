@@ -1,5 +1,6 @@
 import Link from "next/link";
-import Logo from "./Logo";
+import BrandLockup from "./BrandLockup";
+import { SITE_NAME } from "@/lib/site";
 
 import { getSettings, getSocialLinks } from "@/lib/content";
 
@@ -13,8 +14,7 @@ export default async function Footer() {
       <div className="wrap footer-grid">
         <div className="footer-brand">
           <div className="brand">
-            <Logo size={36} />
-            SihaSpan
+            <BrandLockup size={48} />
           </div>
           <p>{settings.footer.blurb}</p>
         </div>
@@ -23,9 +23,7 @@ export default async function Footer() {
           <div className="footer-heading">Explore</div>
           <Link href="/about">About</Link>
           <Link href="/services">Services</Link>
-          <Link href="/who-we-serve">Who we serve</Link>
           <Link href="/insights">Insights</Link>
-          <Link href="/blog">Blog</Link>
           <Link href="/contact">Contact</Link>
         </div>
 
@@ -46,7 +44,7 @@ export default async function Footer() {
       </div>
 
       <div className="wrap footer-bottom">
-        <div>© {new Date().getFullYear()} SihaSpan. All rights reserved.</div>
+        <div>© {new Date().getFullYear()} {SITE_NAME}. All rights reserved.</div>
         <div>Site by Gilvon Software Solutions</div>
       </div>
     </footer>

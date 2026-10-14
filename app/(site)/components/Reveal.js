@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 /** variant: "up" (default) | "left" | "right" | "scale" | "blur" */
-export default function Reveal({ children, delay = 0, as = "div", className = "", style = {}, variant = "up" }) {
+export default function Reveal({ children, delay = 0, as = "div", className = "", style = {}, variant = "up", id }) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
   const Tag = as;
@@ -31,6 +31,7 @@ export default function Reveal({ children, delay = 0, as = "div", className = ""
   return (
     <Tag
       ref={ref}
+      id={id}
       className={`reveal${variant !== "up" ? ` reveal--${variant}` : ""}${visible ? " reveal-visible" : ""}${className ? ` ${className}` : ""}`}
       style={{ ...style, transitionDelay: `${delay}ms` }}
     >

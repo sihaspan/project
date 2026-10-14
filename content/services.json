@@ -1,7 +1,7 @@
 {
   "seo": {
-    "title": "Services — SihaSpan",
-    "description": "Five areas of practice: Strategy & Growth, Health Facility Development, Clinical Governance & Quality, Health Technology and Specialized Advisory."
+    "title": "Services & Who We Serve — Healthcare et Omnia",
+    "description": "Five areas of practice across strategy, facility development, clinical governance, health technology and specialized advisory, for healthcare organizations, public institutions and development partners."
   },
   "head": {
     "kicker": "What we do",
@@ -10,7 +10,7 @@
   },
   "items": [
     {
-      "mark": "S",
+      "icon": "growth",
       "title": "Strategy & Growth",
       "tag": "Direction",
       "body": "Market entry, service-line strategy, scenario planning, competitive positioning, opportunity assessment and investment decisions.",
@@ -18,10 +18,11 @@
         "Scenario Planning",
         "Investment Planning",
         "Strategic Planning"
-      ]
+      ],
+      "summary": "Market entry, service-line expansion, positioning and investment decisions."
     },
     {
-      "mark": "HT",
+      "icon": "technology",
       "title": "Health Technology",
       "tag": "Health-Tech",
       "body": "Digital health strategy, Technology Implementation, Regulatory Compliance and Tech tailoring",
@@ -29,10 +30,11 @@
         "Knowledge Management",
         "Implementation",
         "Ecosystem Scaling"
-      ]
+      ],
+      "summary": "Digital health, AI, health information systems and technology implementation."
     },
     {
-      "mark": "C",
+      "icon": "governance",
       "title": "Clinical Governance & Quality",
       "tag": "Standards",
       "body": "Governance frameworks, quality systems and compliance tool kits that hold up to regulatory and accreditation scrutiny.",
@@ -40,10 +42,11 @@
         "Quality",
         "Systems",
         "Leadership"
-      ]
+      ],
+      "summary": "Clinical standards, quality improvement, patient safety, governance and performance."
     },
     {
-      "mark": "F",
+      "icon": "facility",
       "title": "Health Facility Development",
       "tag": "Infrastructure",
       "body": "Needs Assessment, Workflow design and project oversight for new and expanding health facilities, from concept through to commissioning.",
@@ -51,20 +54,43 @@
         "Pre-Feasibility",
         "Feasibility",
         "Service Design"
-      ]
+      ],
+      "summary": "Feasibility, service planning, facility development, operational models and sustainability."
     },
     {
-      "mark": "A",
-      "title": "Specialised Assignments",
+      "icon": "advisory",
+      "title": "Specialized Advisory",
       "tag": "Bespoke",
       "body": "Focused, time-bound assignments ; research, training, technical reviews, board representation.",
       "capabilities": [
         "Technical Review",
         "Project Validation",
         "Change Management"
-      ]
+      ],
+      "summary": "Complex, bespoke assignments that cut across healthcare strategy, systems and implementation."
     }
   ],
+  "serve": {
+    "head": {
+      "kicker": "Who we serve",
+      "heading": "Every part of the health ecosystem.",
+      "lede": "Different mandates, one shared need: services that actually work for the people who depend on them."
+    },
+    "items": [
+      {
+        "title": "Healthcare organizations",
+        "body": "Medical centers, hospitals and networks planning  to start, expand or resolve operational strain."
+      },
+      {
+        "title": "Public Institutions",
+        "body": "Optimize public health frameworks, Operational efficiency and Policy Design"
+      },
+      {
+        "title": "Development partners",
+        "body": "Community engagement, specialized advisory services and localized reality within communities and institutions."
+      }
+    ]
+  },
   "cta": {
     "heading": "Have a healthcare challenge that needs a systems-level solution?",
     "text": "Tell us about the challenge and we’ll help you scope the right engagement.",

@@ -1,6 +1,8 @@
 import Link from "next/link";
+import Icon from "../components/Icons";
 import Reveal from "../components/Reveal";
 import { getServices } from "@/lib/content";
+import { slugify } from "@/lib/site";
 
 export async function generateMetadata() {
   const { seo } = await getServices();
@@ -8,7 +10,7 @@ export async function generateMetadata() {
 }
 
 export default async function ServicesPage() {
-  const { head, items, cta } = await getServices();
+  const { head, items, serve, cta } = await getServices();
 
   return (
     <>
@@ -22,8 +24,10 @@ export default async function ServicesPage() {
 
           <div className="service-list">
             {items.map((s, i) => (
-              <Reveal key={s.title} as="div" className="service-row" delay={i * 70}>
-                <div className="service-mark">{s.mark}</div>
+              <Reveal key={s.title} as="div" className="service-row" id={slugify(s.title)} delay={i * 70}>
+                <div className="service-mark">
+                  <Icon name={s.icon} size={48} />
+                </div>
                 <div>
                   <h3>{s.title}</h3>
                   <div className="tag">{s.tag}</div>
@@ -36,6 +40,25 @@ export default async function ServicesPage() {
                     ))}
                   </ul>
                 </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="who-we-serve" style={{ paddingBottom: "24px" }}>
+        <div className="wrap">
+          <Reveal as="div" className="page-head">
+            <div className="kicker">{serve.head.kicker}</div>
+            <h2 className="page-subhead">{serve.head.heading}</h2>
+            <p className="page-lede">{serve.head.lede}</p>
+          </Reveal>
+
+          <div className="serve-grid">
+            {serve.items.map((cell, i) => (
+              <Reveal key={cell.title} as="div" className="serve-cell" delay={i * 60}>
+                <h3>{cell.title}</h3>
+                <p>{cell.body}</p>
               </Reveal>
             ))}
           </div>

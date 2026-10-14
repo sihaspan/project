@@ -1,14 +1,21 @@
-const NODES = ["Providers", "Insurers", "Government", "NGOs", "Foundations", "Health-tech"];
+// Each label is split into lines so it fits inside its circle.
+const NODES = [
+  ["Financial", "Management"],
+  ["Investment", "Planning"],
+  ["Strategic", "Planning"],
+];
 
 export default function EcosystemDiagram() {
   const cx = 210;
-  const cy = 210;
-  const r = 150;
+  const cy = 245; // lowered so the triangle of three circles sits centred in the frame
+  const r = 140;
+  const nodeR = 56;
 
-  const positions = NODES.map((label, i) => {
+  const positions = NODES.map((lines, i) => {
     const angle = (Math.PI * 2 * i) / NODES.length - Math.PI / 2;
     return {
-      label,
+      lines,
+      label: lines.join(" "),
       x: cx + r * Math.cos(angle),
       y: cy + r * Math.sin(angle),
     };
@@ -19,7 +26,7 @@ export default function EcosystemDiagram() {
       <svg
         viewBox="0 0 420 420"
         role="img"
-        aria-label="Diagram showing SihaSpan at the centre of the healthcare ecosystem, connected to providers, insurers, government, NGOs, foundations and health-tech companies"
+        aria-label="Diagram showing Healthcare et Omnia at the centre of the healthcare ecosystem, connected to financial management, investment planning and strategic planning"
       >
         <g>
           {positions.map((p, i) => (
@@ -59,9 +66,13 @@ export default function EcosystemDiagram() {
         <g>
           {positions.map((p, i) => (
             <g key={p.label} className="diagram-node" style={{ animationDelay: `${300 + i * 90}ms` }}>
-              <circle cx={p.x} cy={p.y} r={50} className="node-dot" />
-              <text x={p.x} y={p.y + 4} textAnchor="middle" className="node-label">
-                {p.label}
+              <circle cx={p.x} cy={p.y} r={nodeR} className="node-dot" />
+              <text x={p.x} y={p.y - 2} textAnchor="middle" className="node-label">
+                {p.lines.map((line, n) => (
+                  <tspan key={line + n} x={p.x} dy={n === 0 ? 0 : 14}>
+                    {line}
+                  </tspan>
+                ))}
               </text>
             </g>
           ))}

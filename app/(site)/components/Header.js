@@ -3,16 +3,15 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import Logo from "./Logo";
+import BrandLockup from "./BrandLockup";
+import Icon from "./Icons";
 import ThemeToggle from "./ThemeToggle";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/who-we-serve", label: "Who we serve" },
   { href: "/insights", label: "Insights" },
-  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -24,27 +23,32 @@ export default function Header() {
     <header>
       <div className="nav">
         <Link href="/" className="brand" onClick={() => setOpen(false)}>
-          <Logo size={36} />
-          SihaSpan
+          <BrandLockup />
         </Link>
 
-        <nav className={`links${open ? " open" : ""}`}>
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={pathname === link.href || (link.href !== "/" && pathname.startsWith(`${link.href}/`)) ? "active" : ""}
-              onClick={() => setOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
+        <nav className={`links${open ? " open" : ""}`} aria-label="Main">
+          {NAV_LINKS.map((link) => {
+            const active =
+              pathname === link.href || (link.href !== "/" && pathname.startsWith(`${link.href}/`));
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={active ? "active" : ""}
+                aria-current={active ? "page" : undefined}
+                onClick={() => setOpen(false)}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="nav-right">
           <ThemeToggle />
           <Link href="/contact" className="nav-cta" onClick={() => setOpen(false)}>
-            Talk to us
+            Get in Touch
+            <Icon name="arrow" size={20} strokeWidth={1.6} />
           </Link>
           <button
             type="button"

@@ -2,7 +2,7 @@ import Link from "next/link";
 import Reveal from "./Reveal";
 import { formatDate } from "@/lib/content";
 
-/** Shared page for /blog and /insights: heading + grid of post cards. */
+/** Insights list page: heading + grid of post cards. */
 export default function PostList({ head, emptyMessage, posts, basePath }) {
   return (
     <section style={{ paddingBottom: "24px" }}>

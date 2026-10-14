@@ -7,15 +7,15 @@ export const revalidate = 3600;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  const posts = await getPosts("insight");
+  const posts = await getPosts();
   return posts.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }) {
-  const post = await getPost(params.slug, "insight");
+  const post = await getPost(params.slug);
   if (!post) return {};
   return {
-    title: `${post.title} — SihaSpan`,
+    title: `${post.title} — Healthcare et Omnia`,
     description: post.excerpt,
     alternates: { canonical: `/insights/${post.slug}` },
     openGraph: {
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function InsightsPostPage({ params }) {
-  const post = await getPost(params.slug, "insight");
+  const post = await getPost(params.slug);
   if (!post) notFound();
   return <PostArticle post={post} basePath="/insights" backLabel="All insights" />;
 }

@@ -4,7 +4,7 @@ import { formatDate } from "@/lib/content";
 
 const SITE_URL = "https://sihaspan.com"; // TODO: replace with the live production domain
 
-/** Shared article layout for /blog/[slug] and /insights/[slug]. */
+/** Article layout for /insights/[slug]. */
 export default function PostArticle({ post, basePath, backLabel }) {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -12,8 +12,8 @@ export default function PostArticle({ post, basePath, backLabel }) {
     headline: post.title,
     description: post.excerpt,
     datePublished: post.publishedDate,
-    author: { "@type": "Person", name: post.author || "SihaSpan Team" },
-    publisher: { "@type": "Organization", name: "SihaSpan" },
+    author: { "@type": "Person", name: post.author || "Healthcare et Omnia Team" },
+    publisher: { "@type": "Organization", name: "Healthcare et Omnia" },
     mainEntityOfPage: `${SITE_URL}${basePath}/${post.slug}`,
     ...(post.coverImage ? { image: `${SITE_URL}${post.coverImage}` } : {}),
   };

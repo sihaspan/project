@@ -9,6 +9,6 @@ export async function generateMetadata() {
 }
 
 export default async function InsightsPage() {
-  const [{ head, emptyMessage }, posts] = await Promise.all([getInsights(), getPosts("insight")]);
+  const [{ head, emptyMessage }, posts] = await Promise.all([getInsights(), getPosts()]);
   return <PostList head={head} emptyMessage={emptyMessage} posts={posts} basePath="/insights" />;
 }

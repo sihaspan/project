@@ -74,6 +74,22 @@ const titleBodyList = (label, itemLabel) =>
     }
   );
 
+const iconField = (label = "Icon") =>
+  fields.select({
+    label,
+    options: [
+      { label: "Person", value: "user" },
+      { label: "Team", value: "team" },
+      { label: "Target with arrow", value: "target-arrow" },
+      { label: "Growth chart", value: "growth" },
+      { label: "Screen with pulse (technology)", value: "technology" },
+      { label: "Shield with tick (quality)", value: "governance" },
+      { label: "Hospital building", value: "facility" },
+      { label: "Target rings", value: "advisory" },
+    ],
+    defaultValue: "advisory",
+  });
+
 // ---------- config ----------
 
 export default config({
@@ -82,18 +98,18 @@ export default config({
     : { kind: "github", repo: GITHUB_REPO },
 
   ui: {
-    brand: { name: "SihaSpan — Content" },
+    brand: { name: "Healthcare et Omnia — Content" },
     navigation: {
-      Pages: ["home", "about", "services", "whoWeServe", "contact"],
-      Blog: ["posts", "blog", "insights"],
+      Pages: ["home", "about", "services", "contact"],
+      Insights: ["posts", "insights"],
       Site: ["settings"],
     },
   },
 
   collections: {
-    // ------------------------------------------------ Blog posts
+    // ------------------------------------------------ Insights (articles)
     posts: collection({
-      label: "Blog posts",
+      label: "Insights",
       slugField: "title",
       path: "content/posts/*/",
       columns: ["publishedDate", "draft"],
@@ -107,16 +123,6 @@ export default config({
               "Created from the title. This becomes the end of the article's web address — avoid changing it after publishing.",
           },
         }),
-        category: fields.select({
-          label: "Where should this appear?",
-          description:
-            "Blog = news and updates on the Blog page. Insight = longer thought-leadership pieces on the Insights page.",
-          options: [
-            { label: "Blog", value: "blog" },
-            { label: "Insight", value: "insight" },
-          ],
-          defaultValue: "blog",
-        }),
         draft: fields.checkbox({
           label: "Draft (hide from the website)",
           description:
@@ -128,11 +134,11 @@ export default config({
           defaultValue: { kind: "today" },
           validation: { isRequired: true },
         }),
-        author: fields.text({ label: "Author", defaultValue: "SihaSpan Team" }),
+        author: fields.text({ label: "Author", defaultValue: "Healthcare et Omnia Team" }),
         excerpt: fields.text({
           label: "Short summary",
           description:
-            "Shown on the blog list and in Google results. One or two sentences.",
+            "Shown on the Insights list and in Google results. One or two sentences.",
           multiline: true,
           validation: { isRequired: true, length: { max: 300 } },
         }),
@@ -160,19 +166,7 @@ export default config({
   },
 
   singletons: {
-    // ------------------------------------------------ Blog + Insights page text
-    blog: singleton({
-      label: "Blog page text",
-      path: "content/blog",
-      format: { data: "json" },
-      schema: {
-        seo: seo(),
-        head: pageHead(),
-        emptyMessage: fields.text({
-          label: "Message shown when there are no posts yet",
-        }),
-      },
-    }),
+    // ------------------------------------------------ Insights page text
     insights: singleton({
       label: "Insights page text",
       path: "content/insights",
@@ -241,20 +235,29 @@ export default config({
         hero: fields.object(
           {
             eyebrow: fields.text({ label: "Small label" }),
-            heading: fields.text({ label: "Main heading" }),
+            heading: fields.text({
+              label: "Main heading",
+              description: "Each line goes on its own row, so press Enter to start a new line.",
+              multiline: true,
+            }),
             lede: fields.text({ label: "Intro paragraph", multiline: true }),
-            primaryButton: fields.text({ label: "Primary button text" }),
-            secondaryButton: fields.text({ label: "Secondary button text" }),
+            tagline: fields.text({
+              label: "Tagline over the photo",
+              description: "One short phrase per line, e.g. People. / Systems. / Lasting impact.",
+              multiline: true,
+            }),
           },
           { label: "Hero" }
         ),
         strip: fields.array(
           fields.object({
-            name: fields.text({ label: "Bold name" }),
-            detail: fields.text({ label: "Detail" }),
+            number: fields.text({ label: "Number (e.g. 01)" }),
+            name: fields.text({ label: "Title" }),
+            detail: fields.text({ label: "Detail", multiline: true }),
+            icon: iconField(),
           }),
           {
-            label: "Sector strip (under hero)",
+            label: "Highlights strip (under hero)",
             itemLabel: (props) => props.fields.name.value || "Item",
           }
         ),
@@ -263,17 +266,16 @@ export default config({
             head: sectionHead(),
             items: titleBodyList("Highlights", "Highlight"),
           },
-          { label: "“Why SihaSpan” section" }
+          { label: "“Why Healthcare et Omnia” section" }
         ),
         whatWeDo: fields.object(
           {
             head: sectionHead(),
-            buttonText: fields.text({ label: "“View all” button text" }),
           },
           {
-            label: "“What we do” section",
+            label: "“Our services” section",
             description:
-              "The four service cards here are pulled automatically from the Services page.",
+              "The five service columns here are pulled automatically from the Services page.",
           }
         ),
         cta: ctaBand(),
@@ -327,7 +329,7 @@ export default config({
 
     // ------------------------------------------------ Services
     services: singleton({
-      label: "Services page",
+      label: "Services & Who we serve page",
       path: "content/services",
       format: { data: "json" },
       schema: {
@@ -335,13 +337,14 @@ export default config({
         head: pageHead(),
         items: fields.array(
           fields.object({
-            mark: fields.text({
-              label: "Icon letter",
-              validation: { length: { max: 2 } },
-            }),
+            icon: iconField(),
             title: fields.text({ label: "Service name" }),
             tag: fields.text({ label: "Short tag (e.g. Direction)" }),
-            body: fields.text({ label: "Description", multiline: true }),
+            summary: fields.text({
+              label: "Short summary (shown on the home page)",
+              multiline: true,
+            }),
+            body: fields.text({ label: "Description (shown on the Services page)", multiline: true }),
             capabilities: fields.array(fields.text({ label: "Capability" }), {
               label: "Capabilities",
               itemLabel: (props) => props.value || "Capability",
@@ -352,19 +355,14 @@ export default config({
             itemLabel: (props) => props.fields.title.value || "Service",
           }
         ),
+        serve: fields.object(
+          {
+            head: pageHead(),
+            items: titleBodyList("Sectors served", "Sector"),
+          },
+          { label: "“Who we serve” section" }
+        ),
         cta: ctaBand(),
-      },
-    }),
-
-    // ------------------------------------------------ Who we serve
-    whoWeServe: singleton({
-      label: "Who we serve page",
-      path: "content/who-we-serve",
-      format: { data: "json" },
-      schema: {
-        seo: seo(),
-        head: pageHead(),
-        items: titleBodyList("Sectors served", "Sector"),
       },
     }),
 

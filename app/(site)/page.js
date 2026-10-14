@@ -1,16 +1,17 @@
+import Image from "next/image";
 import Link from "next/link";
-import EcosystemDiagram from "./components/EcosystemDiagram";
+import Icon from "./components/Icons";
 import Reveal from "./components/Reveal";
-import HeroVideo from "./components/HeroVideo";
-import HeroWave from "./components/HeroWave";
-import MorphBlob from "./components/MorphBlob";
-import ParallaxController from "./components/ParallaxController";
 import { getHome, getServices } from "@/lib/content";
+import { slugify } from "@/lib/site";
 
 export async function generateMetadata() {
   const { seo } = await getHome();
   return { title: seo.title, description: seo.description };
 }
+
+/** CMS text fields use new lines for deliberate line breaks. */
+const lines = (text = "") => text.split("\n").filter(Boolean);
 
 export default async function Home() {
   const [home, services] = await Promise.all([getHome(), getServices()]);
@@ -18,54 +19,104 @@ export default async function Home() {
 
   return (
     <>
-      <ParallaxController />
-      <section className="hero hero--video">
-        <HeroVideo />
-        <div className="wrap hero-grid" data-parallax="0.12" data-parallax-fade>
-          <Reveal>
-            <div className="eyebrow-plain">{hero.eyebrow}</div>
-            <h1>{hero.heading}</h1>
+      <section className="hero">
+        <div className="hero-media">
+          <Image
+            src="/images/hero.jpg"
+            alt="A healthcare professional in a white coat looking out over a city and hills"
+            fill
+            priority
+            sizes="(max-width: 900px) 100vw, 60vw"
+          />
+        </div>
+
+        <div className="wrap hero-inner">
+          <div className="hero-copy">
+            <p className="eyebrow">{hero.eyebrow}</p>
+            <h1>
+              {lines(hero.heading).map((line) => (
+                <span key={line} className="line">
+                  {line}
+                </span>
+              ))}
+            </h1>
             <p className="lede">{hero.lede}</p>
-            <div className="hero-ctas">
-              <Link href="/contact" className="btn-primary">
-                {hero.primaryButton}
-              </Link>
-              <Link href="/services" className="btn-secondary">
-                {hero.secondaryButton}
-              </Link>
-            </div>
-          </Reveal>
-          <div className="hero-panel" data-parallax="-0.06" data-parallax-max="60">
-            <EcosystemDiagram />
           </div>
         </div>
-        <HeroWave />
-      </section>
 
-      <div className="strip">
-        <div className="wrap">
-          {strip.map((item) => (
-            <span key={item.name}>
-              <strong>{item.name}</strong> · {item.detail}
+        <p className="hero-tagline">
+          {lines(hero.tagline).map((line) => (
+            <span key={line} className="line">
+              {line}
             </span>
           ))}
-        </div>
-      </div>
+          <span className="tagline-rule" aria-hidden="true" />
+        </p>
+      </section>
 
-      <section className="section-blobs">
-        <MorphBlob className="blob-why-1" speed={0.18} variant="a" />
-        <MorphBlob className="blob-why-2" speed={-0.1} variant="b" />
+      <section className="stats" aria-label="At a glance">
+        <div className="wrap stats-grid">
+          {strip.map((item) => (
+            <div className="stat-item" key={item.name}>
+              <div className="stat-icon">
+                <Icon name={item.icon} size={56} />
+              </div>
+              <div className="stat-body">
+                <p className="stat-num">{item.number}</p>
+                <p className="stat-title">{item.name}</p>
+                <p className="stat-detail">{item.detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="services" id="services">
+        <div className="wrap services-layout">
+          <div className="services-intro">
+            <p className="eyebrow">{whatWeDo.head.kicker}</p>
+            <h2>
+              {lines(whatWeDo.head.heading).map((line) => (
+                <span key={line} className="line">
+                  {line}
+                </span>
+              ))}
+            </h2>
+            <span className="rule" aria-hidden="true" />
+            <p className="intro-desc">{whatWeDo.head.description}</p>
+          </div>
+
+          <ul className="service-cols">
+            {services.items.map((s) => (
+              <li className="svc" key={s.title}>
+                <Icon name={s.icon} size={60} className="svc-icon" />
+                <h3>{s.title}</h3>
+                <p>{s.summary}</p>
+                <Link
+                  href={`/services#${slugify(s.title)}`}
+                  className="svc-link"
+                  aria-label={`Read more about ${s.title}`}
+                >
+                  <Icon name="arrow" size={24} strokeWidth={1.6} />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="why">
         <div className="wrap">
-          <Reveal as="div" variant="left" className="section-head">
+          <Reveal as="div" className="section-head">
             <div>
-              <div className="kicker">{why.head.kicker}</div>
+              <p className="eyebrow">{why.head.kicker}</p>
               <h2>{why.head.heading}</h2>
             </div>
             <div className="desc">{why.head.description}</div>
           </Reveal>
           <div className="highlight-grid">
             {why.items.map((item, i) => (
-              <Reveal key={item.title} delay={i * 90} variant="scale" className="highlight-card">
+              <Reveal key={item.title} delay={i * 90} className="highlight-card">
                 <h3>{item.title}</h3>
                 <p>{item.body}</p>
               </Reveal>
@@ -74,38 +125,9 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="section-blobs" style={{ background: "var(--paper-alt)" }}>
-        <MorphBlob className="blob-what-1" speed={0.14} variant="b" />
-        <div className="wrap">
-          <Reveal as="div" variant="left" className="section-head">
-            <div>
-              <div className="kicker">{whatWeDo.head.kicker}</div>
-              <h2>{whatWeDo.head.heading}</h2>
-            </div>
-            <div className="desc">{whatWeDo.head.description}</div>
-          </Reveal>
-          <div className="preview-grid">
-            {services.items.map((s, i) => (
-              <Reveal key={s.title} delay={i * 80} as="div" variant="blur" className="preview-card">
-                <div className="service-mark">{s.mark}</div>
-                <h3>{s.title}</h3>
-                <p className="preview-tag">{s.capabilities.join(" · ")}</p>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal className="preview-cta">
-            <Link href="/services" className="btn-secondary">
-              {whatWeDo.buttonText}
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
       <section className="cta-band">
-        <MorphBlob className="blob-cta-1" speed={0.2} variant="a" />
-        <MorphBlob className="blob-cta-2" speed={-0.12} variant="b" />
         <div className="wrap">
-          <Reveal as="div" variant="scale" className="cta-inner">
+          <Reveal as="div" className="cta-inner">
             <h2>{cta.heading}</h2>
             <p>{cta.text}</p>
             <Link href="/contact" className="btn-primary">
