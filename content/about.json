@@ -14,15 +14,18 @@
   "stats": [
     {
       "number": "1",
-      "text": "Point of contact throughout your engagement, from scoping to delivery"
+      "title": "Point of contact",
+      "detail": "throughout your engagement, from scoping to delivery"
     },
     {
       "number": "3",
-      "text": "Sectors served across the health ecosystem : Healthcare organizations, Public institutions and Development partners."
+      "title": "Sectors served",
+      "detail": "across the health ecosystem : Healthcare organizations, Public institutions and Development partners."
     },
     {
       "number": "5",
-      "text": "Core practice areas, from strategy through to specialised assignments"
+      "title": "Core practice areas",
+      "detail": "from strategy through to specialised assignments"
     }
   ],
   "approach": {

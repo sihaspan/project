@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import EcosystemDiagram from "./components/EcosystemDiagram";
 import Icon from "./components/Icons";
 import Reveal from "./components/Reveal";
 import { getHome, getServices } from "@/lib/content";
@@ -16,7 +15,7 @@ const lines = (text = "") => text.split("\n").filter(Boolean);
 
 export default async function Home() {
   const [home, services] = await Promise.all([getHome(), getServices()]);
-  const { hero, strip, why, whatWeDo, diagram, cta } = home;
+  const { hero, strip, why, whatWeDo, cta } = home;
 
   return (
     <>
@@ -124,14 +123,6 @@ export default async function Home() {
           <Link href="/services" className="btn-secondary">
             {whatWeDo.buttonText}
           </Link>
-        </div>
-      </section>
-
-      <section className="diagram-section">
-        <div className="wrap">
-          <div className="diagram-panel">
-            <EcosystemDiagram nodes={diagram.nodes} />
-          </div>
         </div>
       </section>
 

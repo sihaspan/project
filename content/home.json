@@ -53,6 +53,7 @@
     },
     "buttonText": "View all services"
   },
+<<<<<<< HEAD
   "diagram": {
     "nodes": [
       null,
@@ -60,6 +61,8 @@
       "Strategic planning"
     ]
   },
+=======
+>>>>>>> 2a8d584 (h)
   "cta": {
     "heading": "Have a healthcare challenge that needs a systems-level solution?",
     "text": "Tell us what you're trying to solve and we'll tell you how we can help.",

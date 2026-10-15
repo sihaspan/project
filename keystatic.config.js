@@ -112,7 +112,7 @@ export default config({
       label: "Insight articles",
       slugField: "title",
       path: "content/posts/*/",
-      columns: ["publishedDate", "draft"],
+      columns: ["publishedDate", "topic", "draft"],
       entryLayout: "content",
       schema: {
         title: fields.slug({
@@ -135,6 +135,20 @@ export default config({
           validation: { isRequired: true },
         }),
         author: fields.text({ label: "Author", defaultValue: "SihaSpan Team" }),
+        topic: fields.select({
+          label: "Practice area",
+          description:
+            "Decides which column of the Insights page this article appears in. Choose “None” to show it under “More insights”.",
+          options: [
+            { label: "None", value: "none" },
+            { label: "Strategy & Growth", value: "growth" },
+            { label: "Health Technology", value: "technology" },
+            { label: "Clinical Governance & Quality", value: "governance" },
+            { label: "Health Facility Development", value: "facility" },
+            { label: "Specialised Assignments", value: "advisory" },
+          ],
+          defaultValue: "none",
+        }),
         excerpt: fields.text({
           label: "Short summary",
           description:
@@ -281,17 +295,6 @@ export default config({
               "The five service columns here are pulled automatically from the Services page.",
           }
         ),
-        diagram: fields.object(
-          {
-            nodes: fields.array(fields.text({ label: "Label" }), {
-              label: "Circles around the logo",
-              description: "Each label becomes one circle. Three works best; up to six fit.",
-              itemLabel: (props) => props.value || "Circle",
-              validation: { length: { min: 1, max: 6 } },
-            }),
-          },
-          { label: "Logo diagram" }
-        ),
         cta: ctaBand(),
       },
     }),
@@ -314,11 +317,14 @@ export default config({
         stats: fields.array(
           fields.object({
             number: fields.text({ label: "Number" }),
-            text: fields.text({ label: "Description", multiline: true }),
+            title: fields.text({ label: "Title (shown inside the circle)" }),
+            detail: fields.text({ label: "Description", multiline: true }),
           }),
           {
-            label: "Key stats",
-            itemLabel: (props) => props.fields.number.value || "Stat",
+            label: "Key points (logo diagram)",
+            description: "Each point becomes one circle around the logo, with the full text beside it. Three works best; up to six fit.",
+            itemLabel: (props) => props.fields.title.value || "Point",
+            validation: { length: { min: 1, max: 6 } },
           }
         ),
         approach: fields.object(

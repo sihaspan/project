@@ -1,3 +1,4 @@
+import EcosystemDiagram from "../components/EcosystemDiagram";
 import Reveal from "../components/Reveal";
 import { getAbout } from "@/lib/content";
 
@@ -24,14 +25,21 @@ export default async function AboutPage() {
               {paragraphs.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
+              <div className="stat-list">
+                {stats.map((s, i) => (
+                  <div className="stat" key={i}>
+                    <b>{s.number}</b>
+                    <span>
+                      <strong>{s.title}</strong> {s.detail}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </Reveal>
-            <Reveal delay={100} className="stat-list">
-              {stats.map((s, i) => (
-                <div className="stat" key={i}>
-                  <b>{s.number}</b>
-                  <span>{s.text}</span>
-                </div>
-              ))}
+            <Reveal delay={100}>
+              <div className="diagram-panel">
+                <EcosystemDiagram nodes={stats.map((s) => ({ number: s.number, title: s.title }))} />
+              </div>
             </Reveal>
           </div>
         </div>
