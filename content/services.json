@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "Services & Who We Serve — SihaSpan",
+    "title": "Services — SihaSpan",
     "description": "Five areas of practice: Strategy & Growth, Health Facility Development, Clinical Governance & Quality, Health Technology and Specialized Advisory."
   },
   "head": {
@@ -55,13 +55,13 @@
     },
     {
       "icon": "advisory",
-      "title": "Specialised Assignments",
+      "title": "Specialized Advisory",
       "tag": "Bespoke",
-      "body": "Focused, time-bound assignments ; research, training, technical reviews, board representation.",
+      "body": "Focused, time-bound assignments ; research, training, technical reviews, medical education",
       "capabilities": [
         "Technical Review",
         "Project Validation",
-        "Change Management"
+        "Medical Education"
       ]
     }
   ],
