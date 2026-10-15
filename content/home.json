@@ -11,9 +11,18 @@
     "secondaryButton": "See how we work"
   },
   "strip": [
-    { "name": "Healthcare organizations", "icon": "facility" },
-    { "name": "Public Institutions", "icon": "governance" },
-    { "name": "Development partners", "icon": "team" }
+    {
+      "name": "Healthcare organizations",
+      "icon": "facility"
+    },
+    {
+      "name": "Public Institutions",
+      "icon": "governance"
+    },
+    {
+      "name": "Development partners",
+      "icon": "team"
+    }
   ],
   "why": {
     "head": {

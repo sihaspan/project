@@ -112,7 +112,7 @@ export default config({
       label: "Insight articles",
       slugField: "title",
       path: "content/posts/*/",
-      columns: ["publishedDate", "topic", "draft"],
+      columns: ["publishedDate", "draft"],
       entryLayout: "content",
       schema: {
         title: fields.slug({
@@ -135,20 +135,7 @@ export default config({
           validation: { isRequired: true },
         }),
         author: fields.text({ label: "Author", defaultValue: "SihaSpan Team" }),
-        topic: fields.select({
-          label: "Practice area",
-          description:
-            "Decides which column of the Insights page this article appears in. Choose “None” to show it under “More insights”.",
-          options: [
-            { label: "None", value: "none" },
-            { label: "Strategy & Growth", value: "growth" },
-            { label: "Health Technology", value: "technology" },
-            { label: "Clinical Governance & Quality", value: "governance" },
-            { label: "Health Facility Development", value: "facility" },
-            { label: "Specialised Assignments", value: "advisory" },
-          ],
-          defaultValue: "none",
-        }),
+        icon: iconField("Icon (shown on the Insights page)"),
         excerpt: fields.text({
           label: "Short summary",
           description:

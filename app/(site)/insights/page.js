@@ -1,5 +1,5 @@
 import PostList from "../components/PostList";
-import { getInsights, getPosts, getServices } from "@/lib/content";
+import { getInsights, getPosts } from "@/lib/content";
 
 export const revalidate = 3600;
 
@@ -9,19 +9,6 @@ export async function generateMetadata() {
 }
 
 export default async function InsightsPage() {
-  const [{ head, emptyMessage }, posts, services] = await Promise.all([
-    getInsights(),
-    getPosts(),
-    getServices(),
-  ]);
-  const areas = services.items.map(({ icon, title }) => ({ icon, title }));
-  return (
-    <PostList
-      head={head}
-      emptyMessage={emptyMessage}
-      posts={posts}
-      areas={areas}
-      basePath="/insights"
-    />
-  );
+  const [{ head, emptyMessage }, posts] = await Promise.all([getInsights(), getPosts()]);
+  return <PostList head={head} emptyMessage={emptyMessage} posts={posts} basePath="/insights" />;
 }
