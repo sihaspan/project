@@ -5,24 +5,15 @@
   },
   "hero": {
     "eyebrow": "Health systems advisory",
-    "heading": "Stronger health systems for better outcomes.",
+    "heading": "Stronger health systems for better care.",
     "lede": "We works with healthcare organizations, public institutions and development partners to turn strategy into practical solutions that perform under real-world conditions.",
     "primaryButton": "Start a conversation",
     "secondaryButton": "See how we work"
   },
   "strip": [
-    {
-      "name": "Healthcare organizations",
-      "icon": "facility"
-    },
-    {
-      "name": "Public Institutions",
-      "icon": "governance"
-    },
-    {
-      "name": "Development partners",
-      "icon": "team"
-    }
+    { "name": "Healthcare organizations", "icon": "facility" },
+    { "name": "Public Institutions", "icon": "governance" },
+    { "name": "Development partners", "icon": "team" }
   ],
   "why": {
     "head": {
@@ -49,20 +40,10 @@
     "head": {
       "kicker": "What we do",
       "heading": "Five areas of practice.",
-      "description": "From strategy through to specialized advisory ; explore the full detail on our services page."
+      "description": "From strategy through to specialized assignments ; explore the full detail on our services page."
     },
     "buttonText": "View all services"
   },
-<<<<<<< HEAD
-  "diagram": {
-    "nodes": [
-      null,
-      "Investment planning",
-      "Strategic planning"
-    ]
-  },
-=======
->>>>>>> 2a8d584 (h)
   "cta": {
     "heading": "Have a healthcare challenge that needs a systems-level solution?",
     "text": "Tell us what you're trying to solve and we'll tell you how we can help.",
