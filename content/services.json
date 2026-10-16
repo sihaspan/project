@@ -57,11 +57,11 @@
       "icon": "advisory",
       "title": "Specialised Assignments",
       "tag": "Bespoke",
-      "body": "Focused, time-bound assignments ; research, training, technical reviews, board representation.",
+      "body": "Focused, time-bound assignments ; research, training, technical reviews",
       "capabilities": [
         "Technical Review",
         "Project Validation",
-        "Change Management"
+        "Research"
       ]
     }
   ],
