@@ -195,11 +195,11 @@ export default config({
             }),
             phoneTel: fields.text({
               label: "Phone number (international, for tap-to-call)",
-              description: "e.g. +254721917972",
+              description: "e.g. +254182975535",
             }),
             whatsapp: fields.text({
               label: "WhatsApp number (digits only, with country code)",
-              description: "e.g. 254721917972",
+              description: "e.g. 254182975535",
             }),
             location: fields.text({ label: "Based in" }),
           },
