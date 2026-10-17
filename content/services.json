@@ -13,7 +13,7 @@
       "icon": "growth",
       "title": "Strategy & Growth",
       "tag": "Direction",
-      "body": "Market entry, service-line strategy, scenario planning, competitive positioning, opportunity assessment and investment decisions.",
+      "body": "Market entry, service-line strategy, scenario planning, program design, competitive positioning, opportunity assessment and investment decisions.",
       "capabilities": [
         "Scenario Planning",
         "Investment Planning",
@@ -51,6 +51,17 @@
         "Resource Mapping",
         "Feasibility",
         "Service Design"
+      ]
+    },
+    {
+      "icon": "advisory",
+      "title": "Specialized Advisory",
+      "tag": "Bespoke",
+      "body": "Specific time bound - technical reviews, implementations research, fractional consultancy ",
+      "capabilities": [
+        "Technical Reviews",
+        "Health Systems Education",
+        "Implementation Research"
       ]
     }
   ],
