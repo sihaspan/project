@@ -48,20 +48,9 @@
       "tag": "Infrastructure",
       "body": "Needs Assessment, Workflow design and project oversight for new and expanding health facilities, from concept through to commissioning.",
       "capabilities": [
-        "Pre-Feasibility",
+        "Resource Mapping",
         "Feasibility",
         "Service Design"
-      ]
-    },
-    {
-      "icon": "advisory",
-      "title": "Specialized Consultancy",
-      "tag": "Bespoke",
-      "body": "Focused, time-bound assignments ; implementation research, health systems education, technical reviews, fractional consultancy",
-      "capabilities": [
-        "Technical Reviews",
-        "Health Systems Education",
-        "Implementation Research"
       ]
     }
   ],
